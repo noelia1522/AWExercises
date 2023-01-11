@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<style>
+    body {
+        position:relative;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form{
+        position: relative;
+    }
+
+    input {
+        padding: 10px;
+    }
+    label{
+      position: absolute;
+      font-size: 15px;
+      top: 10px;
+      left: 10px;
+    }
+    .onFocus {
+      top:0;
+      font-size: 10px;
+    }
+</style>
+</head>
+<body>
+<h1>Focus events in Javascript</h1>
+<form id="form">
+    <label for="id1">Username</label>
+    <input type="text" id="id1">
+    </input>
+
+</form>
+
+<script>
+    let inputElem = document.getElementsByTagName("input")[0];
+    let elemElement = document.getElementsByTagName("label")[0]
+    console.log(inputElem);
+
+    inputElem.addEventListener("focus", () => {
+        elemElement.classList.add("onFocus");
+    });
+
+    inputElem.addEventListener("blur", () => {
+            elemElement.classList.remove("onFocus");
+        });
+</script>
+</body>
+</html>

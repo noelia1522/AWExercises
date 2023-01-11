@@ -1,0 +1,269 @@
+
+<!--////////////////////....... 1......///////////////////// -->
+
+<!-- Add the CroCoder logo (image element) (https://crocoder.dev/icon.png)
+  as a child element to the existing div element. -->
+<!-- Easy -->
+<!-- <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+
+  <script>
+    const imageSrc = "https://crocoder.dev/icon.png";
+    const divElement = document.getElementsByTagName('div')[0];
+    const imgElement = document.createElement('img');
+    imgElement.src = imageSrc;
+    divElement.append(imgElement);
+  </script>
+</body>
+</html> -->
+
+<!--////////////////////....... 2......///////////////////// -->
+<!-- Create a page welcome message :
+1. Get the user name in the input field
+2. When the button is pressed add an event that get the user name and
+creates a welcome message on the page
+3. Add a check to ensure the length of the input is larger than 3
+characters long -->
+<!-- Average -->
+<!-- <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="output">What is your name?</div>
+  <input type="text" name="userName" minlength = "3" required>
+  <button>Submit</button>
+  <script>
+    const userVal = document.querySelector('input[name = "userName"]');
+    console.log(userVal.value);
+    const btn = document.querySelector('button');
+    const output = document.querySelector('.output');
+
+    btn.onclick = () => {
+
+      // if (userVal.value.length > 3){
+
+      const message = `welcome to the site ${userVal.value}`;
+      output.textContent = message;
+      // }
+      // else{
+        output.textContent = "Error! Name length must be 3+ characters";
+        userVal.style.borderColor = 'red';
+      // }
+
+    }
+
+
+  </script>
+
+</body>
+</html> -->
+
+<!--////////////////////....... 3......///////////////////// -->
+<!-- Change the text in the first and the last list item element in every
+     unordered list element on this page. Change it to 'first' and 'last'. -->
+     <!-- Average -->
+     <!-- <html lang="en">
+     <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+     </head>
+     <body>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+        <ul>
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
+        </ul>
+        <ul>
+          <li>👻</li>
+          <li>👽</li>
+          <li>🦁</li>
+        </ul>
+        <script>
+          const firstList = document.querySelectorAll(' ul > li:first-child');
+          const lastList = document.querySelectorAll(' ul > li:last-child');
+          console.log(firstList);
+
+          firstList.forEach(li =>li.textContent = "first");
+          lastList.forEach(li => li.textContent = "last");
+
+        </script>
+     </body>
+     </html> -->
+<!--////////////////////....... 4......///////////////////// -->
+
+    <!-- Create 3 counters using different functions, expression, declaration and
+    arrow format.
+    Counters will all work independently as the value of the total
+    is contained within the instance of the function object using "this".
+
+      1. Create three buttons
+      2. Create a function expression that will increment the counter on button1
+      press
+      3. Create a function expression that will increment the counter on button2
+      press
+      4. Create a function expression that will increment the counter on button3
+      press. -->
+
+    <!-- <!DOCTYPE html>
+    <html>
+
+    <head>
+      <title>JavaScript Course</title>
+    </head>
+
+    <body>
+      <div class="output"></div>
+      <button class="btn1">Adder 1</button>
+      <button class="btn2">Adder 2</button>
+      <button class="btn3">Adder 3</button>
+      <script>
+        const btn1 = document.querySelector('.btn1');
+        const btn2 = document.querySelector('.btn2');
+        const btn3 = document.querySelector('.btn3');
+        const output = document.querySelector('.output');
+
+        // function expression
+          const adder2 = function () {
+            if (!this.total) {
+              this.total = 1;
+            }
+            else {
+              this.total++;
+            }
+
+            output.textContent = `Total #2: ${this.total}`;
+          }
+          //arrow function
+            const adder3 = () => {
+              if (!this.total) {
+                this.total = 1;
+              }
+              else {
+                this.total++;
+              }
+
+              output.textContent = `Total #3: ${this.total}`;
+
+            }
+
+        btn1.onclick = adder1;
+        btn2.onclick = adder2;
+        btn3.onclick = adder3;
+
+        // function declaration
+        function adder1()
+        {
+          if(!this.total){
+            this.total = 1;
+          }
+          else{
+            this.total++;
+          }
+
+          output.textContent = `Total #1: ${this.total}`;
+        }
+
+
+      </script>
+    </body>
+    </html> -->
+    <!--////////////////////....... 5......///////////////////// -->
+    <!-- Create interactive elements that can store the current color value input in an
+          array, for later use. Also creates buttons to update the body background
+          color to the value of the button text. Color style and events with Dynamic
+          Elements DOM.
+          Page elements Events and Style Exercise :
+          1. Using JavaScript, create two buttons on the page.
+          2. Add a click event to the first button, that when pressed should list out
+          all the stored color values from the holding array. When pressed
+          create page elements that have the color value from the holding array,
+          and are clickable elements. Once clicked the element should be
+          removed from the page.
+          3. The second button should store the color value from the input field into
+          a holding array.
+          4. The second button should also create a page element button, that has
+          the text content of the input field color value.
+          5. On change of the input value update the background color to match
+          the input field value. -->
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+      <title>Color Picker</title>
+    </head>
+
+    <body>
+      <input type="color">
+      <script>
+        const myInput = document.querySelector('input[type="color"]');
+        // console.log(myInput);
+        const holder = [];
+        const main = document.createElement('div');
+        const btn = document.createElement('button');
+        const btn2 = document.createElement('button');
+        btn.textContent = "Save Color";
+        btn2.textContent = "List Saved Colors";
+        document.body.prepend(btn);
+        document.body.prepend(btn2);
+        document.body.prepend(main);
+        // console.log(main);
+
+        //function- show the color of each saved color in a span element.
+        btn2.onclick = () => {
+          holder.forEach((ele) => {
+            const span = document.createElement('span');
+            main.append(span);
+            span.style.width = '50px';
+            span.style.height = '50px';
+            span.style.display = 'inline-block';
+            span.style.backgroundColor = ele;
+            //remove the color span when I click on it
+            span.onclick = () => {
+              span.remove();
+            }
+          })
+        }
+
+        //function- save colors
+        btn.onclick = () => {
+          holder.push(myInput.value);
+          //main.textContent = holder.toString();
+          const btn1 = document.createElement('button');
+          main.append(btn1);
+          btn1.textContent = myInput.value;
+          btn1.style.backgroundColor = myInput.value;
+          btn1.style.color = 'white';
+          btn1.onclick = () => {
+            document.body.style.backgroundColor = btn1.textContent;
+          }
+        }
+        //function- change the color of background whenever the color is changed in color picker
+        myInput.onchange = (e) => {
+          console.log(e.target.value);
+          console.log(myInput.value);
+          document.body.style.backgroundColor = myInput.value;
+
+        }
+      </script>
+    </body>
+
+    </html>

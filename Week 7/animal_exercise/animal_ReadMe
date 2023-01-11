@@ -1,0 +1,22 @@
+Create a simple server and establish the connection with PostgresDB.
+Create a database schema called “animals_exercise”
+Define and create a table called animals (name, legs, species….). 
+Add some constraints! Legs <=8,  animal name required, etc
+Practice inserting some entries.
+Query to find all the entries in the animals table. Limit results to first 3.
+Query to find all entries of species “dog”. Order results by dog name. 
+Try to insert an animal with 12 legs and see what happens!
+Create an animal called “spiderman” of species spider, with 5 legs.
+Update the entry, a spider should have 8 legs no 5!
+Delete “spiderman”.
+
+Learning about relationships:
+Create another table called person (name, age, email, fav_species = the favorite animal species of the person). 
+Add a constraint: Email should be unique
+A person can have one pet = one of the animals in the animals table. How do you set that up? Add the appropriate column and setting.
+Add new entries in the person table
+Queries:
+Find the owner of “spiderman”.
+Find all animals ready for adoption (i.e that have no owner).
+Return a new table listing all user name and emails together with their pet names.
+

@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+
+<script>
+  First //ok = true
+  let url = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=0672ad160bef8b6d373d9455263f290f";
+  // let url = "/api/fruit/:nutrition?min=0&max=1000";
+  // let url = "https://www.randomuser.me/api";
+  fetch(url)
+  .then(function(response){
+    console.log(response);
+    return response.json();
+  })
+  .then(function(data){
+    console.log((data));
+  })
+
+  // Second
+  let url = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=0672ad160bef8b6d373d9455263f2";
+    fetch(url)//Fetch is not failed. Still returns a promiss. but ok = false
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log((data));
+      })
+
+  // Third
+  let url = "https://api.openweatheap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=0672ad160bef8b6d373d9455263f290f";
+    fetch(url) //fetch is failed here // ok = false
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log((data));
+      })
+  // Fourth
+  let url = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=0672ad160bef8b6d373d9455263f29";
+    fetch(url) // endpoint is correct. but authentication key is not
+    //so ok = false
+      .then(function (response) {
+        if(response.ok){
+          console.log("ok");
+          return response.json();
+        } else {
+          //handle status other than 2xxx //promiss is really not resolevd! obliged the fetch to accept it
+          return Promise.reject('something went wrong!')
+        }
+      })
+      .then(function (data) {
+        console.log(data);
+      })
+      .catch( function (error) {//like the else step. catch th erro
+        console.log('error ' + error);
+
+      })
+
+
+  // Second Example
+  // DOM and API
+  let url =" https://galaxy-explorer.vercel.app/api/clusters";
+
+  //   fetch(url)
+  //   // so ok = false
+  //     .then(function (response) {
+  //       if(response.ok){
+  //         console.log("ok");
+  //         return response.json();
+  //       } else {
+  //         //handle status other than 2xxx //promiss is really not resolevd! obliged the fetch to accept it
+  //         return Promise.reject('something went wrong!')
+  //       }
+  //     })
+  //     .then(function (data) {//data is array
+  //       console.log(data);
+
+  //       let myUl = document.createElement('ul');
+
+  //         data.forEach(Item =>{
+  //           let myLi = document.createElement('li');
+  //           myLi.innerHTML = Item;
+  //           myUl.append(myLi);
+  //         });
+  //       document.body.append(myUl);
+  //     }
+  //     )
+  //     .catch( function (error) {//like the else step. catch th erro
+  //       console.log('error ' + error);
+  //     });
+
+  //   function showElements(data)
+    // {
+    //   let myUl = document.createElement('ul');
+
+    //   data.forEach(Item =>{
+    //         let myLi = document.createElement('li');
+    //         myLi.innerHTML = Item;
+    //         myUl.append(myLi);
+
+    //       });
+
+    //     document.body.append(myUl);
+    // }
+
+    // asynch version
+    async function fetchClustersUsingAsyncAwait() {
+      try{
+        //chaining two promises here
+        const response = await fetch("https://galaxy-explorer.vercel.app/api/clusters");
+        const data = await response.json();
+
+        let myUl = document.createElement('ul');
+
+        data.forEach((Item) => {
+          let myLi = document.createElement('li');
+          myLi.innerHTML = Item;
+          myUl.append(myLi);
+        });
+        document.body.append(myUl);
+
+      }
+      catch(err){
+        console.log("Error");
+        console.log(err);
+
+      }
+
+    };
+    fetchClustersUsingAsyncAwait();
+</script>
+</html>
+<!-- try the same with weather api -->

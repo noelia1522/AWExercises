@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Jane Doe | My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jane Doe. Web designer and UI specialist">
+    <meta name="author" content="Jane Doe">
+    <script src="https://kit.fontawesome.com/79839f35c9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/contactform.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="icon" href="images/mp.png">
+
+  </head>
+  <body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.svg" alt="">My portfolio</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">About</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="color-mode" class="color-mode">
+                <a href="#" id="colorButton">
+                    <!-- moon -->
+                    <i class="fa-sharp fa-solid fa-moon dark"></i>
+                    <!-- sun -->
+                    <i class="fa-sharp fa-solid fa-sun light"></i>
+                    <span id="colorMode" class="textMode">Dark Mode</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+
+        <!-- TABLE -->
+
+            <section class="table">
+                <table>
+                    <caption>Projects, customers and years</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Launch date</th>
+                            <th scope="col">Project</th>
+                            <th scope="col">Link to project</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><time datetime="2015-01">January 2015</time></td>
+                            <td>Skolkovo Business District</td>
+                            <td><a href="https://skolkovoforbusiness.ru/en/features/#home" title="Skolkovo Business District" target="_blank">Visit website</a></td>
+                        </tr>
+                        <tr>
+                            <td><time datetime="2016-03">March 2016</time></td>
+                            <td>The digital Van Gogh Museum</td>
+                            <td><a href="https://www.vangoghmuseum.nl/en/visit/enjoy-the-museum-from-home" title="The digital Van Gogh Museum" target="_blank">Visit website</a></td>
+                        </tr>
+                        <tr>
+                            <td><time datetime="2019-06">June 2019</time></td>
+                            <td>DivineComedy.Digital</td>
+                            <td><a href="https://divinecomedy.digital/#/" title="DivineComedy.Digital" target="_blank">Visit website</a></td>
+                        </tr>
+                        <tr>
+                            <td><time datetime="2021-02">February 2021</time></td>
+                            <td>Cowool. Cosy living & Cosy working</td>
+                            <td><a href="https://cowool.brig.ht/" title="Cowool. Cosy living & Cosy working" target="_blank">Visit website</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- RESUME TIMELINE -->
+            <section class="resume">
+                <div class="resume-left">
+                    <h2>Experiences</h2>
+                    <ul class="timeline">
+                        <li>
+                            <div class="year">2019</div>
+                            <div class="info">
+                                 <h3>Project Manager <span>Best Studio</span></h3>
+                                  <p>Proin ornare non purus ut rutrum. Nulla facilisi. Aliquam laoreet libero ac pharetra feugiat. Cras ac fermentum nunc, a faucibus nunc.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="year">2018</div>
+                            <div class="info">
+                                <h3>UX Designer <span>Digital Ace</span></h3>
+                                <p>Fusce rutrum augue id orci rhoncus molestie. Nunc auctor dignissim lacus vel iaculis.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="year">2016</div>
+                            <div class="info">
+                                <h3>UI Freelancer</h3>
+                                <p>Sed fringilla vitae enim sit amet cursus. Sed cursus dictum tortor quis pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resume-right">
+                    <h2>Education</h2>
+                    <ul class="timeline">
+                        <li>
+                            <div class="year">2017</div>
+                            <div class="info">
+                                <h3>Mobile Web <span>Master Design</span></h3>
+                                <p>Please tell your friends about Tooplate website. That would be very helpful. We need your support.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="year">2015</div>
+                            <div class="info">
+                                <h3>User Interfaces <span>Creative Agency</span></h3>
+                                <p>Tooplate is a great website to download HTML templates without any login or email.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="year">2013</div>
+                            <div class="info">
+                                <h3>Artwork Design <span>New Art School</span></h3>
+                                <p>You can freely use Tooplate's templates for your business or personal sites. You cannot redistribute this template without a permission.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        <!-- CONTACT -->
+
+            <section class="contact">
+
+                <div class="form-container">
+                <div class="contact-left">
+                    <img src="images/form-img.png">
+                </div>
+
+                <div class="contact-right">
+                    <form action="" method="post" class="contact-form">
+                        <h2>Interested to work together? Let's talk</h2>
+                        <ul>
+                            <li>
+                                <label for="name">Your name</label>
+                                <input type="text" class="form-control" name="name" id="name" required>
+                            </li>
+                            <li>
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" required>
+                            </li>
+                            <li>
+                                <label for="phone" >Phone</label>
+                                <input type="tel" class="form-control" name="phone" id="phone" required>
+                            </li>
+                            <li>
+                                <label for="country">Country</label>
+                                <input list="country-list" id="country" name="country" class="form-control"/>
+
+                                <datalist id="country-list">
+                                    <option value="Spain">
+                                    <option value="Greece">
+                                    <option value="Estonia">
+                                    <option value="Italy">
+                                </datalist>
+                            </li>
+                            <li class="double">
+                               <label for="message" >Message</label>
+                               <textarea name="message" rows="6" class="form-control" id="message" required></textarea>
+                            </li>
+                            <li class="legal double">
+                               <input type="checkbox" value="1" id="legal" name="legal" required>
+                               <label for="legal">I have read and accept the <a href="#">Terms and conditions</a></label>
+                            </li>
+                        </ul>
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+
+
+            </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+
+     </footer>
+
+  </body>
+  <script>
+    document.getElementById("colorButton").onclick = function () {
+
+        let colorModeBut = document.getElementById("colorMode");
+        let darkMode = colorModeBut.hasAttribute('data-darkMode');
+
+        if(!darkMode){
+            colorModeBut.setAttribute('data-darkMode', true);
+            colorModeBut.innerHTML = "Light Mode";
+
+        }
+        else{
+            colorModeBut.removeAttribute('data-darkMode');
+            colorModeBut.innerHTML = "Dark Mode";
+
+        }
+
+
+
+
+        document.body.classList.toggle("dark-mode");
+
+
+    }
+
+  </script>
+
+</html>

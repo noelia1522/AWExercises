@@ -1,0 +1,58 @@
+Question1:TypeScript allows developers to add types to JavaScript.
+
+Question2:JavaScript is a loosely typed language.
+
+Question3:The TypeScript compiler can be configured with which file?
+tsconfig.json
+
+Question4:There are two main ways TypeScript assigns a type:
+1:Implicit
+2:Explicit
+
+Question5:Create a "firstName" variable, string type using Implicit type:
+
+let -----   = "Dylan";
+
+Question6:Create a "firstName" variable, string type using Explicit type:
+
+let ----:---- = "Dylan";
+
+ Question7:Create an empty "myVar" variable, and disable type checking:
+
+
+ Question8:Create an empty "myVar" variable, and specify it should be an unknown type:
+
+ Question9:What will be the output of the followinf lines of code?think and discuss first before writing this code
+
+const message = "hello!";
+message();
+Question10:What will be the output?
+
+function greet(person, date) {
+ console.log(`Hello ${person}, today is ${date}!`);
+}
+greet("Brendan");
+
+Question 11:let obj: any = { x: 0 };
+Uncomment the code below and see if the complier throws an error or not
+//obj.foo();
+//obj();
+//obj.bar = 100;
+//obj = "hello";
+//const n: number = obj;
+
+
+QUestion12:Add a strict null check for this piece of code
+Declare const loggedInUsername: string;
+
+const users = [
+  { name: "Oby", age: 12 },
+  { name: "Heera", age: 32 },
+];
+
+const loggedInUser = users.find((u) => u.name === loggedInUsername);
+console.log(loggedInUser.age);
+
+// Note:When strictNullChecks is false, null and undefined are effectively ignored by the language. This can lead to unexpected errors at runtime.
+
+// When strictNullChecks is true, null and undefined have their own distinct types and you’ll get a type error if you try to use them where a concrete value is expected.

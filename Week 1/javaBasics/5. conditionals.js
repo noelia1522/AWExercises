@@ -1,4 +1,5 @@
-/** 1. Write a function that given 2 integers, returns the one that is nearest to 100. Don't forget about the case where 2 numbers are equally close to 100 (print a message in this case).*/
+/** 1. Write a function that given 2 integers, returns the one that is nearest to 100.
+ * Don't forget about the case where 2 numbers are equally close to 100 (print a message in this case).*/
 
 /** 2. Rewrite a function below so that it contains only 2 lines of code.
  * The function returns true if the given number is zero, the string "positive" if the number is greater than zero or the string "negative" if it's smaller than zero.
@@ -15,7 +16,7 @@ function compare_to_100 (x) {
 }
 
 /** 3. Rewrite the function below so that it only contains one line of code.
- * The function takes a number as a parameter and returns true if it's 18 or greater, and false if it's less than 18. 
+ * The function takes a number as a parameter and returns true if it's 18 or greater, and false if it's less than 18.
  */
 
 function legalAge(age) {
@@ -27,15 +28,17 @@ function legalAge(age) {
 }
 
 /** 4. Write a function that takes a string as a parameter and returns true if it's empty, and false if it's not empty. A string containing only whitespaces (" ") does not count as empty.
- * 
+ *
  * Examples:
  * isStringEmpty("") ➞ true
  * isStringEmpt(" ") ➞ false
  * isStringEmpt("a") ➞ false
  */
 
-/** 5. Write a function that accepts language as a parameter and prints a greeting in this language. You can handle as few or as many languages as you want - just make sure to always print a greeting.
- * 
+/** 5. Write a function that accepts language as a parameter and prints a greeting in this language.
+ * You can handle as few or as many languages as you want
+ * - just make sure to always print a greeting.
+ *
  * Example:
  * input: 'English', output: 'Hello!'
 */

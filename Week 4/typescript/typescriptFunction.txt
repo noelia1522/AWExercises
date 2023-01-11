@@ -1,0 +1,64 @@
+Functions
+Question1:Create a function that returns the string "Learning is Fun!", with the return type explicitly defined:
+---------- myFunc():---------- {
+------ "Learning is Fun!";
+}
+
+
+Question2:
+Part1.
+Declare a varaible with its type
+
+Variable Name	        Type	  Value
+spacecraftName	        string	  'Determination'
+speedMph	        number	  17500
+kilometersToMars	number	  225000000
+kilometersToTheMoon	number	  384400
+milesPerKilometer	number	  0.621
+
+Part 2 - Print Days to Mars
+
+1.Declare and assign these variables.
+
+a.Remember: variable declarations in TypeScript include the type!
+b.milesToMars is a number with the value of kilometersToMars * milesPerKilometer.
+c.hoursToMars is a number with the value of milesToMars / speedMph.
+d.daysToMars is a number with the value of hoursToMars / 24.
+
+
+
+2.Write a console.log statement that prints out the days to Mars.
+  a. Use template literal syntax and the variables ${spacecraftName} and ${daysToMars}.
+Answer:
+Determination would take 332.67857142857144 days to get to Mars.
+
+Part3.Create a Function :
+
+1.define a function that calculates the days it would take to travel to a location.
+a.Function name: getDaysToLocation
+b.Parameter:kilometersAway       (must be a number).
+c.Returns the number of days to a location.
+     *Use the same calculations as in Part 2.1.
+     *Inside the function, make the variable names generic. Use milesAway and hoursToLocation instead of milesToMars and hoursToMars.
+     *The function should declare that it returns a number.
+
+2.Print out the days to Mars.
+a.Move the output statement from part 2 below your new function.
+b.Refactor the template literal to use ${getDaysToLocation(kilometersToMars)} and ${spacecraftName}.
+
+3.Print out the days to the Moon.
+a.Add another output statement and template literal using ${getDaysToLocation(kilometersToTheMoon)} and ${spacecraftName}.
+
+Answer:
+Determination would take 332.67857142857144 days to get to Mars.
+   Determination would take 0.5683628571428571 days to get to the Moon.
+   
+Question3:Create a function that specifically does not return a value
+
+Question4:Create a function with 2 parameters (myVar1 and myVar2), that are both strings
+
+Question5:Create a function with 2 parameters (myVar1 and myVar2,in that order), that are both strings.
+Specify that myVar2 should be optional
+
+Question6:Prevent the array from being changed:
+const names: readonly string[] = ["Dylan"];

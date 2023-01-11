@@ -30,15 +30,18 @@ const x = 3;
 
 function isX1(num) {
   const x = 5;
-  return num === x;
+  return (num === x);
 }
 
-function isX2(num) {
-  return num === x;
+function isX2(num)
+{
+  const x = 6;
+  return (num === x);
 }
 
-const one = isX1(/* ADD CODE HERE */);
-const two = isX2(/* ADD CODE HERE */);
+const one = isX1(5);
+const two = isX2(3);
+console.log(one, two);
 
 // Uncomment these to check your work!
 // console.log(one); // should log: true

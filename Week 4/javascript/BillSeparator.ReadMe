@@ -1,0 +1,5 @@
+Eating Out Bill Splitter
+Build a HTML form and accept input then calculate how much each person has to pay to split a bill. Add the ability to accept a tip and split paying it.
+
+Use HTML and layout the necessary fields to accept the bill amount, the number of people eating with you and two buttons to split the bill and to reset the fields.
+

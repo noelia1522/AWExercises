@@ -1,0 +1,15 @@
+Question1:Write a node.js program to replace two or more a's with the letter b on the given string using Regular Expression.
+console.log("aaewewedsdewddsxac".replace(new RegExp("[Aa]{2,}"), "b"));
+Output of the above code:
+bewewedsdewddsxac
+
+Question2:. There is a given object, write node.js program to print the given object's properties, delete the second property and get length of the object.
+var user = {
+first_name: "John",
+last_name: "Smith",
+age: "38",
+department: "Software"
+};
+Question3:How do you zip a file in node.js?
+Node.js provides Zlib module to zip a file.
+var zlib = require('zlib');

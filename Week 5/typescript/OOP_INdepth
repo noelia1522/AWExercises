@@ -1,0 +1,57 @@
+Question1:Create a class named Vehicle that show the name of the vehicle and then create a sub class named car that displays the brand of the car and then create another subclass of class Car named carModel that displays the Model Number of a vehicle.
+
+Implement these classes to get the type brand and  model of a vehicle using single object instantiated.
+
+Question2:Create a class named vehicle that has function named honk(),and a subclass named car that is used to display the information of a class.
+Use derive class to call the function of both parent and child class
+
+Question3:Create a class Person that has two memeber varaible named firstname,lastname that is declared in the constructor and a member functio getname() to show the complete name of a person.
+now create a subclass Employee that will display the inofrmation of a person by first displaying the fullname from getname() method and then show the job title.
+Hint:uses super keywords to call the properties of the parent class.
+let employee = new Employee('Ayesha', 
+        'Malik', 'Software Developer');
+          
+employee.displayInfo();
+
+Question4:Clearing OOP conecpt with real life example
+ If you had a class called “Expensive Cars,” it could contain objects like Mercedes, BMW, Toyota, and so on.
+ The price or speed of these autos could be one of its attributes (data). Driving, reversing, braking, and other techniques can be used with these vehicles.
+Similarly create a class by taking some real life example,add its dta memebers,functions and indentify and object to be defines as an instance of a class.
+
+
+Question5:Create an Abstract class Student that contains a method take  exam, implement themethod in the  child  classes  PhdStudent  and  GradStudent  in  which PhdStudent  takesexam  by giving his final defense presentation while the graduate student gives a writtenpaper
+
+Question6:Create a class named Pizza that stores information about a single pizza. It should containthe following:    Private  instance  variables  to  store  the  size  of  the  pizza  (either  small,  medium,or large), the  number of  cheese toppings, the number of pepperoni toppings, andthe number of ham toppings.
+  Constructor(s) that set all of the instance variables. 
+  Public methods to get and set the instance variables. 
+  A public method named calcCost( ) that returns a double that is the cost of the pizza.
+Pizza cost is determined by: Small: $10 + $2 per topping Medium: $12 + $2 per topping Large: $14 + $2 per topping  
+   public method named getDescription( ) that returns a String containing the pizzasize, quantity of each topping.  
+
+ Write test code to create several pizzas and output their descriptions. For example, alarge pizza with one cheese, one pepperoni and two ham toppings should cost a total of$22.
+
+Next step:
+Now Create a PizzaOrder class that allows up to three pizzas to be saved in an order.Each pizza saved should be a Pizza object. Create a method  calcTotal() that returns thecost of  order. In the runner order two pizzas and return the total cost
+
+Question7:Write a program by creating an 'Employee' class having the following methods and printthe final salary. 
+1 - 'getInfo()' which takes the salary, number of hours of work per day of employee asparameter2  
+2 -   'AddSal()'   which   adds   $10   to   salary   of   the   employee   if   it   is   less   than   $500.3 
+3- 'AddWork()' which adds $5 to salary of employee if the number of hours of work perday is more than 6 hours
+
+Question8:
+Create a class called 'Matrix' containing constructor that initializes the number of rows and number of columns of a new Matrix object.
+ The Matrix class has the following information:
+1.number of rows of matrix
+2 number of columns of matrix
+3 - elements of matrix in the form of 2D array
+
+The Matrix class has methods for each of the following:
+1 - get the number of rows
+2 - get the number of columns
+3 - set the elements of the matrix at given position (i,j)
+4 - adding two matrices. If the matrices are not addable, "Matrices cannot be added" will be displayed.
+5 - multiplying the two matrices
+
+Question9:Write a program that has variables to store Car data like; CarModel, CarName, CarPriceand CarOwner. The program should include functions to assign user defined values tothe above mentioned variable and a display function to show the values. Write a main that   calls   these   functions.  Now   write   another   runner   class   that   declares   three   Carobjects and displays the data of all three.
+
+Question 10. A Student is an object in a university management System. Analyze the concept and identify the data members   that   a   Student   class   should   have.   Also   analyze   thebehavior   of  student  in   a   university management System and identify the methods that should be included in Student class

@@ -1,0 +1,61 @@
+.dark-mode {
+  background: #0c0c0d;
+  color: white;
+}
+.dark-mode header nav #drop:checked ~ ul{
+  background: #0c0c0d;
+}
+.dark-mode header{
+  background: #0c0c0d;
+}
+.dark-mode header a.active{
+  color: #72edca;
+}
+.dark-mode footer a,.dark-mode .color-mode a:hover,.dark-mode .color-mode a:focus, .dark-mode form a{
+  color: #72edca;
+}
+.dark-mode .logo a,.dark-mode nav a:hover,.dark-mode nav a:focus, .dark-mode .timeline a{
+  color: #72edca;
+}
+.dark-mode .animated-item{
+  color: #72edca;
+}
+.dark-mode .timeline .year{
+  background: #72edca;
+  color: black;
+}
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode .color-mode a, .dark-mode p, .dark-mode nav a, .dark-mode .timeline .info span{
+  color: #ffffff;
+}
+
+.dark-mode .timeline .info span{
+  opacity: 0.8;
+}
+
+.dark-mode .timeline-info small{
+  color: #ccc;
+}
+
+.dark-mode .contact-form .form-control {
+  border: 1px solid white;
+}
+
+.dark-mode .contact-form .form-control:hover, .dark-mode .contact-form .form-control:focus {
+  border-color: #72edca;
+}
+
+.dark-mode .testimonials .testimonial{
+  background: #333;
+}
+
+/* contact.html */
+
+.dark-mode .contact h1,.dark-mode .portfolio h1{
+  border-color: white;
+}
+.dark-mode .contact h1 span,.dark-mode .portfolio h1 span{
+  background: #0c0c0d;
+}
+.dark-mode input, .dark-mode textarea{
+  color: white;
+}

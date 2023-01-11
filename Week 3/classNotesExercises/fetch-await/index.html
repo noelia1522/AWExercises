@@ -1,0 +1,40 @@
+<!-- example of await, async functions -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let url = "https://galaxy-explorer.vercel.app/api/clusters";
+    async function fetchClustersUsingAsynchAwait() {
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          console.log(data);
+
+          let myUl = document.createElement('ul');
+
+          data.forEach(Item => {
+            let myLi = document.createElement('li');
+            myLi.innerHTML = Item;
+            myUl.append(myLi);
+          });
+          document.body.append(myUl);
+        }
+        catch (err) {
+          console.log("Error: ");
+          console.log(err);
+        }
+
+      }
+      fetchClustersUsingAsynchAwait();
+
+  </script>
+
+
+</body>
+</html>

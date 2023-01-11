@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <button id = "myButton" class = "myButton" style = "padding: 20px">
+        Click on Me!
+    </button>
+  </main>
+
+  <script>
+    const button = document.getElementById('myButton');
+      button.addEventListener('click', printClick)
+
+      function printClick(params) {
+        console.log("Clicked");
+
+    }
+
+    // button.addEventListener('click', function (){
+    //   console.log("Clicked!");
+    // })
+  </script>
+</body>
+</html>
+
+
+<!-- body = document.body
+div = body.firstElementChild → div OR div = body.firstChild → div
+body.childNodes[1] → ul OR div.nextSibling → ul OR body.lastChild → ul
+ul.lastElementChild → li “peter” OR ul.lastChild → li OR ul.childNodes[1] → li OR ul.childNodes[childNodes.length-1] →
+li -->

@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "description": "My movies app",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=prod node server need to be specified",
+    "dev": "nodemon server"
+  },
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.13.14",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}

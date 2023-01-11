@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "lib":["es2015"],
+    "module": "commonjs",
+    "outDir":"dist",
+    "sourceMap": true,
+    "strict": true,
+    "types":["node"],
+    "strictNullChecks": false,
+    "target": "es2020",
+    "strictPropertyInitialization": false,
+    "typeRoots": [ "../node_modules/@types" ]
+  },
+  "include":[
+    "src"
+  ]
+}
+// npm install @types/node --save-dev

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Tasks Controller</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style id="compiled-css" type="text/css">
+      main {
+  display: flex;
+  height: 65vh;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.controls input {
+  margin-right: 16px;
+}
+
+#tasks {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#tasksList {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+#tasksList ul {
+  padding: 0;
+  margin: 0;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.task.done .task-text {
+  text-decoration: line-through;
+}
+
+.task-text {
+  flex: 1;
+}
+
+.task-delete {
+  margin-right: 16px;
+}
+
+.hide {
+  display: none;
+}
+
+    /* EOS */
+  </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/3.0.7/marx.min.css" integrity="sha512-gIfBOM+mjygWMgT6b/dqLds7xc9UxAoN+04jxTdg7oLrqJC8dGdbgGU4ddwPDxOeluhkm+0fsIpFLKwrRBxmGQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<body>
+
+<main>
+  <h1>To Do List</h1>
+  <div class="controls">
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="taskButton">Add</button>
+  </div>
+  <div id="tasks">
+    <h2>Tasks</h2>
+    <div id="tasksList">
+      <ul id = "myUl">
+        <li class="task" data-id="1">
+          <span class="task-text">TaskString</span>
+          <input type="checkbox" class="done-checkbox">
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+
+<script type="text/javascript">
+  let taskArray = [
+    {
+      task: "write code",
+      done: true
+    },
+    {
+      task: "study JS",
+      done: false
+    }
+
+  ];
+
+  let taskBut = document.getElementById("taskButton");
+  let taskInput = document.getElementById("taskInput");
+  taskBut.addEventListener('click', function (event) {
+    let taskString = taskInput.value;
+
+    addNewTask(taskString);
+    showTask();
+
+  })
+
+    function addNewTask(taskString) {
+      let newTask = {
+        task: taskString,
+        done: false
+      }
+      taskArray.push(newTask);
+
+    };
+
+    //Show the tasks on the page
+    function showTask(){
+
+      let taskList = document.createElement("ul");
+      let taskListDiv = document.getElementById("tasksList")
+
+      for (let taskObject of taskArray){
+
+        let taskListItem = document.createElement('li');
+        taskListItem.classList.add('task');
+
+        let taskTextSpan = document.createElement('span');
+        taskTextSpan.classList.add('task-text');
+        taskTextSpan.innerHTML = taskObject.task;
+
+        taskListItem.append(taskTextSpan);
+        taskList.append(taskListItem);
+
+      }
+      taskListDiv.innerHTML = taskList.outerHTML;
+
+
+    };
+
+
+
+
+
+
+</script>
+</body>
+</html>

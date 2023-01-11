@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1></h1>
+  <button onclick = createUsers()>Create Users</button>
+  <script>
+    window.onload = function () {
+
+      // fetch("/hey")
+      // .then(response => response.json())
+      // .then(data => {
+      //     // console.log(data);
+      //     document.querySelector("h1").innerHTML = data.name;
+      //   })
+      //   .catch();
+    }
+
+    function createUsers() {
+      fetch("/users", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ name: "Evan", email: "evan@gmail.com",age: 12, parent: "63bd56a90c3ca2af0ebd1f60"})
+      })
+
+    }
+  </script>
+</body>
+</html>

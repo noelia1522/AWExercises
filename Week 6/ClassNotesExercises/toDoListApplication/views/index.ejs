@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div class =container>
+      <h2>A Simple ToDo List App</h2>
+      <form action="http://localhost:3000/tasks" method = "POST">
+        <input type = "text" name ="newtask" placeholder="add a new task">
+        <button id = "btn" type = "submit">Add Task</button>
+      </form>
+
+      <h2>Add Task</h2>
+      <form action="http://localhost:3000/tasks">
+        <ul>
+          <% for (let i = 0; i < task.length; i++) { %>
+            <li> <input type = checkbox name=check value= <%=task[i].id %> />
+            <%= task[i].text %>
+            </li>
+          <%}%>
+
+        </ul>
+      </form>
+
+    </div>
+    <script>
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", e =>{
+        e.preventDefault();
+        fetch("http://localhost:3000/deletetask/#id"),{
+          method:"DELETE"
+        };
+
+      })
+      .then(re => res.json())
+      .then(data => console.log(data))
+    </script>
+</body>
+</html

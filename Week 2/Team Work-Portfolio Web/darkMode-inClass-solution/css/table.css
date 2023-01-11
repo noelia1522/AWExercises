@@ -1,0 +1,35 @@
+table {
+	width: 100%;
+	border-collapse: collapse;
+	/* overflow: hidden; */
+	margin: 0 auto;
+	background: linear-gradient(45deg, #6DB2B1, #7E599C);
+}
+table caption{
+  font-size: 2em;
+  padding: 0 0 1em 0;
+}
+table a{
+	color: white;
+	text-decoration: none;
+}
+table a:hover{
+	color: white;
+	text-decoration: underline;
+}
+
+th,td {
+	padding: 15px 8px;
+	vertical-align: top;
+	color: #fff;
+	text-align: left;
+}
+th{
+	background:#55608F;
+	position: sticky;
+    top: 90px;
+}
+
+tbody tr:hover{
+	background-color: rgba(255,255,255,0.3);
+}

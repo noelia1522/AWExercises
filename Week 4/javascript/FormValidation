@@ -1,0 +1,4 @@
+This project involves building a form that validates input and ensures data entered is valid before storing to a persistent data store such as a database.
+Form validations can occur on both the front end or the back end (ie. server) but some prefer to perform validations earlier in the process than later.
+Build a sign in/ sign up form and validate the input. 
+The sign up form should include fields such as the first name, last name, email address, phone number, country and zip code.

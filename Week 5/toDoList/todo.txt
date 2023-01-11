@@ -1,0 +1,35 @@
+
+// This morning we started working on the "toDoList" application using
+   snowpack, typescript, and axios.
+
+// we used the following snowpack command to automatically generate the initial files, folders, and settings for the app:
+
+npx create-snowpack-app . --template @snowpack/app-template-blank-typescript --force
+
+//Now, we want to read data from the local txt file in "public" folder which is called
+// "randomQuotes.txt". It contains an array of objects.
+// Each object has 2 properties: "text" and "author".
+
+//In a new ts file, create a function called "getQuotes". It has one parameter "author".
+
+//       function getRandomQuotes(author: string) {
+              //your code
+}
+//getQuotes should get the txt file using axios and save the resulted array in
+// a variable. Then, it should find all of the quotes which has the same author as "author".
+//For example:
+// getRandomQuotes("Thomas Edison") // returns an array with length = 5. the first item in the array is:
+
+//  {
+//    author: "Thomas Edison"
+//    text: "If we did the things we are capable of, we would astound ourselves."
+//   }
+
+
+//use axios to get the file data. use async/await when needed.
+//use lodash to find the items. Does lodash "findLast" method work here? what about "find"?
+//which lodash function you should use? check lodash documentation (https://lodash.com/)
+
+
+//After importing the function you wrote in index.ts, call it, and log the results.
+//Finally, represent text and author on the page.

@@ -1,0 +1,49 @@
+
+.color-mode{
+ margin-top: 10px;
+ padding: 5px;
+ border: 2px solid rgb(82, 76, 76);
+ border-radius: 5px;
+}
+.dark-mode .color-mode{
+  border-color: white;
+  color: white;
+
+}
+.dark-mode .textMode{
+  color: white;
+}
+
+.dark-mode{
+  background-color: black;
+  color: white;
+
+}
+
+.dark-mode header{
+  background-color: black;
+  color:white;
+
+}
+.dark-mode header nav a{
+  color: white;
+
+}
+
+.dark-mode .logo a{
+  color: #72edca
+}
+
+.dark-mode .timeline .year {
+  background-color: #72edca;
+  color: black;
+}
+.dark-mode .dark{
+  display:none;
+}
+.light{
+  display: none;
+}
+.dark-mode .light {
+  display: inline-block;
+}
