@@ -15,7 +15,10 @@ app.use(methodOverride('_method'))
 
 app.use(flash())
 app.use(session({
-  //use connect-mongo to save session id to database
+  secret:"Hello! we are happy today!",
+  resave: false,
+  saveUnitialized: false // makes a saved up session even if it's not initialized
+  //use connect-mongo to save session to database
 }))
 
  app.use(passport.initialize())

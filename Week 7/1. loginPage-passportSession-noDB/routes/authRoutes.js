@@ -5,7 +5,7 @@ const passport = require('passport')
 const bcrypt = require('bcrypt')
 const initializePassport = require('../config/passport-config')
 
-const users = []    //users fake database
+const users = [{email: "nl@gmail.com", password: 1522}]    //users fake database
 console.log(users);
 
 //function initialize(passport, getUserByEmail, getUserById) {
@@ -24,15 +24,34 @@ function getUserById(id) {
     res.render('index.ejs', { name: req.user.name})
   })
 
-  router.get('/login', (req, res) => {
-    res.render('login.ejs')
+  router.get('/login', (req, res) => { //if the user is logged in, she shouldn't be able to see the login page
+    res.render('login.ejs') //this function is implemented
   })
 
-  router.post('/login', (req, res) =>{
+
+  router.post('/login',passport.authenticate("local",{
+    successRedirect: '/',
+    failureRedirect: '/login',//if email is repetitive or password wrong
+    failureFlash: true
+  }))
+  /*router.post('/login', async(req, res) =>{ // 
     //authenticate and redirect to index if true
-    res.redirect("/")
+
+
+   const user = users.find((item)=> item.email === req.body.email);
+
+    if(!user){
+      console.log("No user found with this email address!")
+    } else{
+      const found = await bcrypt.compare(req.body.password, user.passport)
+    }
+
+    if(!found){
+      console.log("Password is incorrect!")
+    } else{res.redirect("/")}
+    
   }
-  )
+  )*/
 
   router.get('/register', (req, res) => {
     res.render('register.ejs')
@@ -40,8 +59,19 @@ function getUserById(id) {
 
   router.post('/register', async (req, res) => {
     // register and redirect to login
-    res.redirect('/login')
     //TODO: check if email already exists!!
+    const hashedPassword = bcrypt.hash(req.body.password, 10);//salt = 10
+    const user = {
+      id: Date.now().toString(),
+      name: req.body.body.name,
+      email: req.body.email,
+      password: hashedPassword
+    }
+    users.push(user)//Users.create({}) if u¡you use 
+    
+    //register and redirect to login
+    res.redirect('/login')
+    
 
 
   })
