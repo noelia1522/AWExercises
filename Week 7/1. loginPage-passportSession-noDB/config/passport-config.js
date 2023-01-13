@@ -1,8 +1,8 @@
-const LocalStrategy = require('passport-local').Strategy
-const bcrypt = require('bcrypt')
+const LocalStrategy = require('passport-local').Strategy //importing the strategy we use, local : local strategy
+const bcrypt = require('bcrypt') //to hash the password
 
 function initialize(passport, getUserByEmail, getUserById) {
-
+//
   const customFields = {
     usernameField: "email",
     passwordField: "password",
@@ -15,12 +15,18 @@ function initialize(passport, getUserByEmail, getUserById) {
 
     if (!user) {
       return done(null, false, { message: 'No user with that email' })
+      //se pone false porque es el caso de que no hay user
     }
 
+    //si hay user:
+
     try {
+      //user.password the one in the array and password the one we get from the user
       if (await bcrypt.compare(password, user.password)) {
+        //si las contraseñas son iguales:
         return done(null, user)
       } else {
+        //si las contraseñas no son iguales
         return done(null, false, { message: 'Password incorrect' })
       }
     } catch (e) {
@@ -31,12 +37,16 @@ function initialize(passport, getUserByEmail, getUserById) {
   passport.use(new LocalStrategy(customFields, authenticateUser))
 
   //save user.id in our session
+  //done is a callback function, you ca ¡n use any other name
   passport.serializeUser((user, done) => {
-    return done(null, user.id)
+    //first (1) parameter in done(1,2) is true if 
+    return done(null, user.id) ///(DB error(null), user(user.id), error message)
   })
+
+  //get the id and retrieve the user
   passport.deserializeUser((id, done) => {
     return done(null, getUserById(id))
   })
 }
 
-module.exports = initialize
+module.exports = initialize;

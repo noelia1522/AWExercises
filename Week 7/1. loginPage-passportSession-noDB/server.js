@@ -6,6 +6,8 @@ const methodOverride = require('method-override')
 const flash = require('express-flash')
 const session = require('express-session')
 const authRoutes = require('./routes/authRoutes')
+const mongoose = require("mongoose");
+const MongoStore=require("connect-mongo");
 
 
 app.set('view-engine', 'ejs')
@@ -17,8 +19,12 @@ app.use(flash())
 app.use(session({
   secret:"Hello! we are happy today!",
   resave: false,
-  saveUnitialized: false // makes a saved up session even if it's not initialized
+  saveUninitialized: false, // makes a saved up session even if it's not initialized
   //use connect-mongo to save session to database
+  store: MongoStore.create({//create a collection with this session in our db. adding info about database we use to store the sessions
+    mongoUrl: process.env.DB_SERVER,
+    collection: "sessions"
+  })
 }))
 
  app.use(passport.initialize())
@@ -27,6 +33,6 @@ app.use(session({
 
 
 app.use('/', authRoutes)
-
+mongoose.connect(process.env.DB_SERVER,)
 
 app.listen(3000)
