@@ -1,8 +1,11 @@
 const LocalStrategy = require('passport-local').Strategy //importing the strategy we use, local : local strategy
 const bcrypt = require('bcrypt') //to hash the password
+const User= require("../models/user")
 
-function initialize(passport, getUserByEmail, getUserById) {
-//
+//Working with db we have to use await and async!!!!
+
+//function initialize(passport, getUserByEmail, getUserById) {
+function initialize(passport) {
   const customFields = {
     usernameField: "email",
     passwordField: "password",
@@ -10,8 +13,8 @@ function initialize(passport, getUserByEmail, getUserById) {
 
   //This is the callback function that goes inside localstrategy setup
   const authenticateUser = async (email, password, done) => {
-    const user = getUserByEmail(email)  
-    //const user = Users.findOne({email: email})   
+    //const user = getUserByEmail(email)  
+    const user = await User.findOne({email: email})   
 
     if (!user) {
       return done(null, false, { message: 'No user with that email' })
@@ -44,8 +47,9 @@ function initialize(passport, getUserByEmail, getUserById) {
   })
 
   //get the id and retrieve the user
-  passport.deserializeUser((id, done) => {
-    return done(null, getUserById(id))
+  passport.deserializeUser (async(id, done) => {
+    const user= await User.findOne({_id: id }) //el segundo id es el mismo que el de deserializeUser
+    return done(null,user);
   })
 }
 

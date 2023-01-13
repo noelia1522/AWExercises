@@ -5,7 +5,9 @@ const passport = require('passport')
 const bcrypt = require('bcrypt')
 const initializePassport = require('../config/passport-config')
 //we import the config file 
+const User= require("../models/user")
 
+/*
 const users = []    //users fake database
 console.log(users);
 
@@ -17,9 +19,9 @@ function getUserByEmail(email) {
 function getUserById(id) {
   return users.find((item) => item.id === id);
 }
+*/
 
-//this is only used cause we are not using a DB for now and we do the checks on the array users that is here
- initializePassport(passport, getUserByEmail, getUserById)
+ initializePassport(passport)
 
   router.get('/',checkAuthenticated, (req, res) => {
     res.render('index.ejs', { name: req.user.name})
