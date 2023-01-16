@@ -5,7 +5,8 @@ const passport = require('passport')
 const bcrypt = require('bcrypt')
 const initializePassport = require('../config/passport-config')
 //we import the config file 
-const User = require("../models/user")
+const User = require("../models/user");
+const { BadRequest } = require('../utils/errors');
 
 /*
 const users = []    //users fake database
@@ -43,10 +44,15 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
 })
 
 router.post('/register', checkNotAuthenticated, async (req, res) => {
+
+  const { name, email, password } = req.body;
   //TODO: check if email already exists!!
   const hashedPassword = await bcrypt.hash(req.body.password, 10);//salt = 10 
   //it has to wait for the password bc it's interaction with a database!
   try {
+    if(!name || !password || ! email){
+      throw new BadRequest("Missing required field: name, password or email")
+    }
     await User.create({
       name: req.body.name,
       email: req.body.email,
@@ -67,8 +73,8 @@ router.delete('/logout', (req, res) => { //delete the session id
 
   //logged out and redirect to login
   res.redirect('/login');
-  req.session.destroy(function(error){
-    if(error){
+  req.session.destroy(function (error) {
+    if (error) {
       return (error)
     }
     res.redirect('/login');//if it doesn't have error redirect to login page

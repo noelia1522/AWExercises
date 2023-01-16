@@ -8,6 +8,7 @@ const session = require('express-session')
 const authRoutes = require('./routes/authRoutes')
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo");
+const handleErrors = require('handleErrors')
 
 
 app.set('view-engine', 'ejs')
@@ -34,6 +35,7 @@ app.use(passport.session())
 
 
 app.use('/', authRoutes)
+app.use(handleErrors);
 mongoose.connect(process.env.DB_SERVER, { useNewUrlParser: true })
   .then(() => {
     console.log("connected to the DB...");
