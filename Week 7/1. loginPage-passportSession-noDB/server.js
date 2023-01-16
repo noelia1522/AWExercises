@@ -29,7 +29,7 @@ mongoose.connect(process.env.DB_SERVER, {useNewUrlParser: true})
   app.listen(process.env.PORT, "localhost", (err) =>{
     if(err) console.log("Server could not be started" + err.message);
     else console.log(`Server listening on port ${process.env.PORT}...`);
-  })
+  })})
 
 
 app.use('/', authRoutes)
