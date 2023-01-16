@@ -4,7 +4,9 @@ const router = express.Router();
 const passport = require('passport')
 const bcrypt = require('bcrypt')
 const initializePassport = require('../config/passport-config')
-const User = require("../models/users")
+const User = require("../models/users");
+const { BadRequest } = require('../utils/errors');
+
 
 
 //this is only used cause we are not using a DB for now and we do the checks on the array users that is here
@@ -30,22 +32,29 @@ const User = require("../models/users")
     res.render('register.ejs')
   })
 
-  router.post('/register',checkNotAuthenticated, async (req, res) => {
+  router.post('/register',checkNotAuthenticated, async (req, res, next) => {
 
-    //TODO: check if email already exists!!
-    const hashedPassword = await bcrypt.hash(req.body.password, 10); //salt = 10
+    const {name, email, password} = req.body;
+
+
     try{
-    await User.create({
+      if(!name || !password || !email){
+        throw new BadRequest("Missing required field: name, password, or email")
+      }
+      else{
+      const hashedPassword = await bcrypt.hash(req.body.password, 10); //salt = 10
+     await User.create({
       name: req.body.name,
       email: req.body.email,
       password: hashedPassword
     });
     // register and redirect to login
     res.redirect('/login');
-  }
+    }}
   catch(err){
-    console.log(err);
-    res.redirect('register');
+    next(err)
+    // console.log(err);
+    // res.redirect('register');
   }
   })
 
