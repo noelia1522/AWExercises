@@ -15,7 +15,7 @@ app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false })) //to handle post requests
 app.use(express.static("public"));
 app.use(methodOverride('_method'));
-app.use(flash());
+
 
 app.use(session({
   secret: "Hello! we are happy today!",
@@ -29,7 +29,7 @@ app.use(session({
 }))
  app.use(passport.initialize());
  app.use(passport.session());
-
+ app.use(flash());
 app.use('/', authRoutes);
 app.use(handleErrors);
 

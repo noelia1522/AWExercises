@@ -1,4 +1,3 @@
-
 const express = require('express')
 const router = express.Router();
 const passport = require('passport')
@@ -13,6 +12,7 @@ const { BadRequest } = require('../utils/errors');
  initializePassport(passport);
 
   router.get('/', checkAuthenticated, (req, res) => {
+
     res.render('index.ejs', { name: req.user.name})
   })
 
@@ -66,7 +66,7 @@ const { BadRequest } = require('../utils/errors');
 
     req.session.destroy(function(error){
       if (error) {
-        return next(error)//check it later
+        return next(error);
       }
       res.redirect('/login');
     })
