@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const mongoose = require("mongoose");
+mongoose.set('strictQuery', false);
 const searchRoutes = require("./routes/searchRoutes")
 
 const app = express()
