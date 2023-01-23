@@ -1,18 +1,20 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const passport = require('passport')
+
 const methodOverride = require('method-override')
-const flash = require('express-flash')
-const session = require('express-session')
-const authRoutes = require('./routes/authRoutes')
+const flash = require('connect-flash')
 const mongoose = require('mongoose');
+const authRoutes = require('./routes/authRoutes')
+const passport = require('passport')
+const session = require('express-session')
 const MongoStore = require("connect-mongo");
 const handleErrors = require('./middleware/handleErrors')
 
 
 app.set('view-engine', 'ejs')
-app.use(express.urlencoded({ extended: false })) //to handle post requests
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })) //to handle post requests
 app.use(express.static("public"));
 app.use(methodOverride('_method'));
 
@@ -30,7 +32,10 @@ app.use(session({
  app.use(passport.initialize());
  app.use(passport.session());
  app.use(flash());
+
 app.use('/', authRoutes);
+
+
 app.use(handleErrors);
 
 mongoose.connect(process.env.DB_SERVER, {useNewUrlParser: true})

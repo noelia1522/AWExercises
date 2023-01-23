@@ -11,13 +11,16 @@ const { BadRequest } = require('../utils/errors');
 //this is only used cause we are not using a DB for now and we do the checks on the array users that is here
  initializePassport(passport);
 
-  router.get('/', checkAuthenticated, (req, res) => {
+
+  router.get('/', checkAuthenticated, (req, res) => { //  /test/
 
     res.render('index.ejs', { name: req.user.name})
   })
 
-  router.get('/login', checkNotAuthenticated ,(req, res) => {//if the user is logged in, she shouldn't see the login page
-    res.render('login.ejs')//this function is implimented
+
+  router.get('/login', checkNotAuthenticated, (req, res) => {//if the user is logged in, she shouldn't see the login page
+    console.log("get/login");
+    res.render('login.ejs')//this function is implimented )
   })
 
   router.post('/login', checkNotAuthenticated,  passport.authenticate("local", {
@@ -33,15 +36,14 @@ const { BadRequest } = require('../utils/errors');
   })
 
   router.post('/register',checkNotAuthenticated, async (req, res, next) => {
-
+    console.log("register: ", req.body);
     const {name, email, password} = req.body;
-
-
     try{
       if(!name || !password || !email){
         throw new BadRequest("Missing required field: name, password, or email")
       }
       else{
+        console.log("post/register/else");
       const hashedPassword = await bcrypt.hash(req.body.password, 10); //salt = 10
      await User.create({
       name: req.body.name,

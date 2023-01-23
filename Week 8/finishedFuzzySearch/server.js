@@ -4,8 +4,12 @@ const path = require("path");
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const cors = require("cors");
-const searchRoutes = require('./routes/searchRouter')
+const searchRoutes = require('./routes/searchRouter');
+const session = require("express-session");
+const passport = require("passport");
+const flash = require("connect-flash");
 require('dotenv').config();
 
 app.use(cors());
@@ -15,6 +19,21 @@ app.use(bodyParser.urlencoded({ extended: true })) //to handle post requests
 app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs')//to set the view engine/ mechanism to show html pages
+
+app.use(session({
+  secret: "hey! this is your secret line!",
+  resave: false,
+  saveUninitialized: false,
+  coockie: {maxAge: 24* 60 * 60 * 1000}, //in milliseconds
+  store: MongoStore.create({
+    mongoUrl: process.env.DB_SERVER,
+    collection: "sessions"
+  })
+}))
+
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', searchRoutes);
 

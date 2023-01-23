@@ -1,0 +1,48 @@
+Create React App using the ReadMe file.
+Question2:Enter the correct ReactDOM method to render the React element to the DOM.
+
+ReactDOM.---------(myElement, document.getElementById('root'));
+Question 3:Create a new project and add React to the project.Now create first element  i.e <h1>gettign started with react </h1> with ReacrDom.render().
+Question4:Create a variable that contains HTML code e.g create a table with some rows and columns and display it in the "root" node using ReactDom.render()
+Question5:Execute the expression 5 + 5: using JSX
+Question6:
+Render a <p> element without using JSX.
+const paragraph = React.createElement(------, {}, 'This is a paragraph without using JSX!');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(paragraph);
+Question7:create a first component named Person that will show the name of a person using props
+Question 8:Send the "brand" property from the Garage component to the Car component:
+
+function Car(props) {
+ 
+}
+
+function Garage() {
+  return (
+   
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Garage />);
+
+Question9:
+Create a variable named name and pass it to the Person component.
+
+function Person(props) {
+  return <h2>I'm { props.name }!</h2>;
+}
+
+function Greeting() {
+  const name = "Jesse"
+  return (
+    <>
+      <h1>Hello!</h1>
+      <Person name={name} 
+ />
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Greeting />);
