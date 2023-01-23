@@ -1,0 +1,9 @@
+React code to build a simple search filter functionality to display a filtered list based on the search query entered by the user.
+
+The following are the steps to create a Search filter using React JS:
+
+Declare React states for search input values.
+Create HTML input text for entering search term and update state in onChange function.
+Add Array.filter() on list of items with search term value.
+
+Get the fake data from mockaroo.com
