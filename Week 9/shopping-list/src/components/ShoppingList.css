@@ -1,0 +1,66 @@
+.firstLine{
+  padding: 5px;
+  font-size: 20px;
+  font-weight: 700;
+
+}
+.ulist{
+  display: grid;
+  grid-template-rows: auto;
+  padding-left: 0;
+
+}
+.litem{
+  display:grid;
+  list-style-type: none;
+  grid-template-columns: 20% 20% 60%;
+}
+
+.itemText{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.itemQnt{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.butContainer{
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin:5px;
+}
+
+.deleteBut{
+  color: white;
+  background-color: brown;
+  border-radius: 5px;
+  border: 2px solid rgb(143, 37, 37);
+  margin: 2px;
+
+}
+
+.incBut{
+
+    color: white;
+    background-color: #037171;
+    border-radius: 5px;
+    border: 2px solid #013e3e;
+    margin: 2px;
+}
+.addItemContainer{
+  padding: 10px 0 10px 0;
+}
+.addInput{
+  padding: 5px 0 5px 0;
+}
+
+.addBut{
+  padding:5px;
+  margin-left: 3px;
+
+}

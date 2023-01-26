@@ -1,0 +1,35 @@
+Quest1:Simple counter exercise
+
+Creating a simple counter using React which increments or decrements count dynamically on-screen as the user clicks on the button. 
+We can complete the simple counter exercise with the following steps:
+
+Create React state to store the count value.
+Declare JS functions to incement or decrement the value through setState().
+Add HTML buttons with onClick to JSX code.
+
+Quest2:Build Accordion in React
+
+Creating an accordion that toggles text content on click of the accordion header using React State and conditional rendering.
+
+The following are the steps to create an accordion in React JS:
+
+Display every title of accordion with body.
+Hide every accordion body using element.display = none;
+Toggle visibility of accordion body on click of title.
+
+Quest3:Create a Checklist in React
+React code to display a checklist with multiple options that can select and the selected options are dynamically displayed on the screen. React State is used to keep track of checked options and onChange() Event handler is triggered to alter the state whenever an option is checked or unchecked.
+
+The following are the steps to create a Checklist in React JS:
+
+Create React state to track checkbox value.
+Function to update checkbox value based on event.target.checked
+Add checkbox input element to JSX code with onChange function.
+Question4:
+React code to build a simple search filter functionality to display a filtered list based on the search query entered by the user.
+
+The following are the steps to create a Search filter using React JS:
+
+Declare React states for search input values.
+Create HTML input text for entering search term and update state in onChange function.
+Add Array.filter() on list of items with search term value.

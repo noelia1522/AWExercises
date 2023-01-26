@@ -6,6 +6,11 @@
       "dom.iterable",
       "esnext"
     ],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,6 +21,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "rootDirs": ["src", "generated"],
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"

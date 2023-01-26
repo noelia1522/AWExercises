@@ -1,0 +1,74 @@
+Rendering a JSON:
+Rendering JSON
+Most of the time, the structure of the data we're working with in real-world applications aren't simple lists like ['dog', 'cat', 'chicken', 'cow', 'sheep', 'horse'].
+
+A lot of data is stored in JSON format. This is especially true when you're fetching data from a database.
+
+JSON stands for JavaScript Object Notation, a type of format for data interchange.
+
+This type of data is just an object instead of a simpler datatype such as a string.
+
+For example, an array of JSON objects looks like this:
+[
+{
+id:1,
+setup:"whats the best thing about a boolean?",
+punchline:"even if you are wrong,you are only off by a bit"
+},
+{
+id:2
+setup:"whyy do programmers wear glasses?"
+punchline:"because the need to c#"
+}
+
+]
+
+
+
+
+
+To keep it simple, let's keep it to only two items.
+
+Using the array of objects above, render the jokes with React.
+Tip:
+
+Create a custom component for rendering each joke.
+Using the map function, map through each object in the array. Use the custom component to render each object.
+Helpful links:
+
+JSON:https://www.w3schools.com/js/js_json_intro.asp
+Flexbox:https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+Exercise2
+ Working with an API
+Every React or any frontend developer must learn how to work with an API. When building applications, you receive data from the backend or an outside source which you will have to present nicely in the UI.
+
+Fetch from this API endpoint: https://random-data-api.com/api/users/random_user?size=10
+
+This will return ten random users.
+
+Here we'll put together everything we did from the previous examples:
+
+Show each user's basic info in a card.
+When a card is hovered upon, the card flips to show more information about the user.
+There should also be a button that when clicked, will fetch another set of 10 random users, which updates the cards.
+Here are the steps for this exercise:
+
+Fetch the data from the URL. You also have to handle converting the JSON response into a JavaScript object in this process. (See Response.json() resource link below)
+Store it in React state.
+Render the data based on the state.
+Take note that most APIs return data in the form of JSON. Good thing we already covered JSON in the previous exercise 😄
+
+Hints:
+
+Do the fetching inside a useEffect React hook
+Create a custom component for the card, which accepts a user JSON object. Map through the data returned from the API and render each one using the custom component.
+
+Helpful links:
+What is an API? In English, please
+How to use Fetch API:https://www.freecodecamp.org/news/what-is-an-api-in-english-please-b880a3214a82/
+Response.json() function:https://developer.mozilla.org/en-US/docs/Web/API/Response/json
+React useEffect hook:https://reactjs.org/docs/hooks-effect.html
+
+We'll also be needing a lot more CSS, especially for the card hover effect:
+
+Card flip effect:https://www.w3schools.com/howto/howto_css_flip_card.asp
