@@ -72,3 +72,13 @@ React useEffect hook:https://reactjs.org/docs/hooks-effect.html
 We'll also be needing a lot more CSS, especially for the card hover effect:
 
 Card flip effect:https://www.w3schools.com/howto/howto_css_flip_card.asp
+
+Exercise3:
+Build a form that accepts a first name and a last name. And instead of a boring "Submit" button, make a button that says "Greet Me" that when clicked, will alert "Hello [first name] [last name]!".
+
+Here you will use a combination of concepts such as using state, and event listening both on text input and button click.
+
+But there is one specific concept we didn't tackle yet:
+
+React forms and onChange() function
+https://reactjs.org/docs/forms.html
