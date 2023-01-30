@@ -7,6 +7,8 @@ Create React state to store the count value.
 Declare JS functions to incement or decrement the value through setState().
 Add HTML buttons with onClick to JSX code.
 
+https://youtu.be/65kX31klmtI
+
 Quest2:Build Accordion in React
 
 Creating an accordion that toggles text content on click of the accordion header using React State and conditional rendering.
@@ -25,6 +27,9 @@ The following are the steps to create a Checklist in React JS:
 Create React state to track checkbox value.
 Function to update checkbox value based on event.target.checked
 Add checkbox input element to JSX code with onChange function.
+
+https://youtu.be/5MVzaAMiz08
+
 Question4:
 React code to build a simple search filter functionality to display a filtered list based on the search query entered by the user.
 
@@ -33,3 +38,4 @@ The following are the steps to create a Search filter using React JS:
 Declare React states for search input values.
 Create HTML input text for entering search term and update state in onChange function.
 Add Array.filter() on list of items with search term value.
+https://youtu.be/mZvKPtH9Fzo
