@@ -15,6 +15,12 @@
   list-style-type: none;
   grid-template-columns: 20% 20% 60%;
 }
+.highlighted{
+  background-color: yellow;
+  border-radius: 5px;
+  border: 2px solid red;
+
+}
 
 .itemText{
   padding: 10px;

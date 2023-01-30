@@ -11,18 +11,18 @@ function App() {
   const itemsList = [
     {
       id:0,
-      name: "milk",
+      title: "milk",
       count: 3
     },
      {
       id:1,
-      name: "egg",
+      title: "egg",
       count: 1
 
     },
      {
       id:2,
-      name: "rice",
+      title: "rice",
       count: 3
     }
   ]
