@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1></h1>
+  <form action="http://localhost:3000/users" , method="post">
+    <ul>
+      <li>
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name" />
+      </li>
+      <li>
+        <label for="email">E-mail: </label>
+        <input type="email" id="email" name="email">
+      </li>
+      <li>
+        <label for="age">Age: </label>
+        <input type="text" id="age" name="age">
+      </li>
+    </ul>
+    <input type="submit" value="Sign Up">
+  </form>
+  <!-- <button onclick = "createUsers()">Create User</button> -->
+  <script>
+    window.onload = function () {
+      //1
+      // document.querySelector("h1").innerHTML = "Happy new year!"
+
+      //2
+      //front-end rendering
+      //these days we usually render frontend using this method
+      // and leave the backend to handle just the operation wit the DBs.
+      // server is API
+      // with react we do front-end rendering
+      // fetch("/users")
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     console.log(data);
+      //     document.querySelector("h1").innerHTML = data.name;
+      //   })
+      //   .catch()
+
+    };
+    // function createUsers() {
+    //   fetch("/users",{
+    //       method: "POST",
+    //       headers:{"Content-Type": "application/json"},
+    //       body: JSON.stringify({name: "Maria", email:"maria@gmail.com", age: 33})}
+    //   )
+    // }
+  </script>
+</body>
+
+</html>
