@@ -6,7 +6,8 @@ async function createTask(req, res) {
   try{
     const task = await taskModel.create({
     title: req.body.title,
-    checked: req.body.checked
+    checked: req.body.checked,
+    count: req.body.count
   })
   res.send(task)
   // const allTasks = await retrieveTasks();
@@ -35,6 +36,12 @@ async function getTasks(req, res) {
   res.json(allTasks)
   // res.render("index", task = allTasks );
 }
+async function updateCount(req, res) {
+  console.log("in updateCount");
+  const {id, count} = req.body;
+  const updatedTask = await taskModel.updateOne({_id: id}, {$set:{count: count}});
+  res.json(updatedTask)
+}
 
 async function retrieveTasks() {
   const allTasks = await taskModel.find();
@@ -46,4 +53,4 @@ function getTaskById(req, res){
 
   // res.send(task);
 }
-module.exports = {getTaskById, getTasks, createTask, retrieveTasks, deleteTask}
+module.exports = {getTaskById, getTasks, createTask, retrieveTasks, deleteTask, updateCount}

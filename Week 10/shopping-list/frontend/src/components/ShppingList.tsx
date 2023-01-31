@@ -4,6 +4,7 @@ import "./ShoppingList.css";
 import Dropdown from "./Dropdown";
 import _ from "lodash";
 import classNames from "classnames";
+import Loader from "./Loader";
 
 type ShoppingListProps = {
   items: {
@@ -21,6 +22,7 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
   const [selectedOption, setSelectedOption] = useState("50-100");
   const [budget, setBudget] = useState("0");
   const [highlighted, setHighlight] = useState(-1);
+  const [isLoading, setIsLoading] = useState(true);
 
   function fetchItemsFromServer() {
     let itemsFromServer;
@@ -32,6 +34,10 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
           return { id, title, count };
         });
         setlistItems(itemsFromServer);
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 2000);
       });
   }
 
@@ -41,7 +47,7 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title: value, checked: false }),
+      body: JSON.stringify({ title: value, checked: false, count: 1 }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -57,11 +63,33 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
 
   function deleteItem(itemID: number) {
     const requestOptions = {
-      method: "POST",
+      method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ _id: itemID }),
     };
     fetch("/tasks/remove", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        fetchItemsFromServer();
+      });
+  }
+
+  function updateCount(updateType: string, { id, count }: any) {
+    console.log(count);
+
+    let updatedCount;
+    if (updateType === "increase") {
+      updatedCount = count++;
+    } else if (updateType === "decrease") {
+      updatedCount = count--;
+    }
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, count }),
+    };
+    fetch("tasks/updateCount", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -78,11 +106,11 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
   function decreaseQuantity(itemId: number) {
     let newList = [...listItems];
     const index = _.findIndex(newList, { id: itemId });
-    newList[index].count--;
-    if (newList[index].count === 0) {
+    if (newList[index].count === 1) {
       deleteItem(itemId);
+      return;
     }
-    setlistItems(newList);
+    updateCount("decrease", newList[index]);
   }
 
   function formHandler(event: any) {
@@ -133,45 +161,46 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
           Shopping list has {listItems.length} items
         </div>
       )}
-
-      <ul className="ulist">
-        {listItems.map(
-          (item, index) =>
-            item.count > 0 && (
-              <li
-                className={classNames(
-                  { litem: true },
-                  { highlighted: highlighted === index }
-                )}
-                key={item.id}
-              >
-                <span className="itemText">{item.title}: </span>
-                <span className="itemQnt">{item.count}</span>
-                <div className="butContainer">
-                  {item.count > 0 && (
-                    // <button className='deleteBut' onClick = {() => deleteItem(item.id)}>Delete</button>
-                    <button
-                      className="deleteBut"
-                      onClick={() => decreaseQuantity(item.id)}
-                    >
-                      Decrease
-                    </button>
+      {!isLoading && (
+        <ul className="ulist">
+          {listItems.map(
+            (item, index) =>
+              item.count > 0 && (
+                <li
+                  className={classNames(
+                    { litem: true },
+                    { highlighted: highlighted === index }
                   )}
-                  <button
-                    className="incBut"
-                    onClick={() => increaseQuantity(index)}
-                  >
-                    Increase
-                  </button>
-                </div>
-                {/* */}
-                {/* <Button handleClick= {(event: any, id:number) => printText(event, id)} text="Click"></Button> */}
-                {/* <button onClick={() => decreaseQuantity(index)}>Decrease</button> */}
-              </li>
-            )
-        )}
-      </ul>
-
+                  key={item.id}
+                >
+                  <span className="itemText">{item.title}: </span>
+                  <span className="itemQnt">{item.count}</span>
+                  <div className="butContainer">
+                    {item.count > 0 && (
+                      // <button className='deleteBut' onClick = {() => deleteItem(item.id)}>Delete</button>
+                      <button
+                        className="deleteBut"
+                        onClick={() => decreaseQuantity(item.id)}
+                      >
+                        Decrease
+                      </button>
+                    )}
+                    <button
+                      className="incBut"
+                      onClick={() => increaseQuantity(index)}
+                    >
+                      Increase
+                    </button>
+                  </div>
+                  {/* */}
+                  {/* <Button handleClick= {(event: any, id:number) => printText(event, id)} text="Click"></Button> */}
+                  {/* <button onClick={() => decreaseQuantity(index)}>Decrease</button> */}
+                </li>
+              )
+          )}
+        </ul>
+      )}
+      {isLoading && <Loader></Loader>}
       <div>
         <input className="addInput" value={note} onChange={noteHandler}></input>
         <button className="incBut" onClick={addNotes}>

@@ -6,7 +6,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 router.get("/", TaskController.getTasks);
 router.get("/:id", TaskController.getTaskById);
 router.post("/", urlencodedParser, TaskController.createTask);
-router.delete("/",TaskController.deleteTask)
-router.post("/remove", TaskController.deleteTask)
+router.delete("/remove", TaskController.deleteTask)
+router.put("/updateCount", TaskController.updateCount)
 
 module.exports = router;

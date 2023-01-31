@@ -28,3 +28,16 @@ p {
 
 HTML
 <div id="root"></div>
+
+Challenge2:
+Fetching data in React based on user input (onChange)
+Creatte a textbox that will call the followng api that is fetching data from the JSON Server APIs.
+"https://jsonplaceholder.typicode.com/users"
+use onchange event handler to be called when a name is type in a textbox and display it on browser
+NOTTE:
+Displaying Loading state when fetching data from API in React
+It is always a good practice. display a loading message (or a spinner) by making use of a local state.
+Handle error whle fetchng data from the server
+
+Challenge3:
+Fetch the same data in React using async-await or AXIOS
