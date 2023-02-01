@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Button from "./Button";
+import Button from "../components/Button";
 import "./ShoppingList.css";
-import Dropdown from "./Dropdown";
+import Dropdown from "../components/Dropdown";
 import _ from "lodash";
 import classNames from "classnames";
-import Loader from "./Loader";
+import Loader from "../components/Loader";
 
 type ShoppingListProps = {
   items: {
@@ -23,6 +23,10 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
   const [budget, setBudget] = useState("0");
   const [highlighted, setHighlight] = useState(-1);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchItemsFromServer();
+  }, []);
 
   function fetchItemsFromServer() {
     let itemsFromServer;
@@ -57,10 +61,6 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
       .catch((e) => console.log(e));
   }
 
-  useEffect(() => {
-    fetchItemsFromServer();
-  }, []);
-
   function deleteItem(itemID: number) {
     const requestOptions = {
       method: "DELETE",
@@ -87,7 +87,7 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
     const requestOptions = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, count }),
+      body: JSON.stringify({ id, count: updatedCount }),
     };
     fetch("tasks/updateCount", requestOptions)
       .then((response) => response.json())

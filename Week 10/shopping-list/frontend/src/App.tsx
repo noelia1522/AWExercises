@@ -1,43 +1,56 @@
-import React from 'react';
-import { ShoppingList } from './components/ShppingList';
-import ShoppingListc from './components/ShoppingListc';
-import {Clock} from './components/Clock'
-import { Container } from './components/Container';
-import LifecycleA from './components/LifeCycleA'
-import './App.css';
+import React from "react";
+import { ShoppingList } from "./pages/ShppingList";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import NotFound from "./pages/NotFound";
+import ShoppingListc from "./components/ShoppingListc";
+import { Clock } from "./components/Clock";
+import { Container } from "./components/Container";
+import LifecycleA from "./components/LifeCycleA";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+
+import "./App.css";
 
 function App() {
-
   const itemsList = [
     {
-      id:0,
+      id: 0,
       title: "milk",
-      count: 3
+      count: 3,
     },
-     {
-      id:1,
+    {
+      id: 1,
       title: "egg",
-      count: 1
-
+      count: 1,
     },
-     {
-      id:2,
+    {
+      id: 2,
       title: "rice",
-      count: 3
-    }
-  ]
+      count: 3,
+    },
+  ];
 
   return (
-    // <Container className="styles.App">
-    //   <Clock></Clock>
-    //   <ShoppingListc items = {itemsList}></ShoppingListc>
-    // </Container>
-    // <LifecycleA></LifecycleA>
-    // <Clock></Clock>
-    <div className='App'>
-      <Container >
-    <ShoppingList items= {itemsList}></ShoppingList>
-    </Container>
+    <div className="App">
+      <Router>
+        <Header></Header>
+        <Container>
+          <Routes>
+            <Route
+              path="/"
+              element={<ShoppingList items={itemsList} />}
+            ></Route>
+            <Route
+              path="/shoppinglist"
+              element={<ShoppingList items={itemsList} />}
+            ></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </Container>
+      </Router>
     </div>
   );
 }
