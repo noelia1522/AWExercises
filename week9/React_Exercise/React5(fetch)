@@ -1,6 +1,6 @@
 
  Challenge: Given the url above, make this app fetch the data and display them in the browser (Small Hint: use `React.useEffect and fetch api`)
-  Video for reference: https://youtu.be/V
+  Video for reference:https://www.youtube.com/watch?v=VzNNjNmbXpY
 
 const url = "https://jsonplaceholder.typicode.com/users/1";
 /** 
@@ -41,3 +41,4 @@ Handle error whle fetchng data from the server
 
 Challenge3:
 Fetch the same data in React using async-await or AXIOS
+Axios is a library in ReactJS.
