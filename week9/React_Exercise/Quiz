@@ -1,0 +1,34 @@
+Enter the correct ReactDOM method to render the React element to the DOM.
+ReactDOM.Render(myElement, document.getElementById('root'));
+
+Question2:Complete this arrow function:
+
+
+hello =() =>"Hello World!";
+Question3:Create a variable that cannot be changed.
+Const x = 5.6;
+Question4:Complete the array method that will allow you to run a function on each item in the array and return a new array.
+const myList = myArray.map((item) => <p>{item}</p>)
+
+Question5:Add the following CSS styles inline to the <h1> element   color = "purple"
+const Header = () => {
+  return (
+    <>
+      <h1 style={{color: "purple"}}>Hello Style!</h1>
+      <p>Add a little style!</p>
+    </>
+  );
+}
+
+Question6:Add the following CSS styles inline to the <h1> element
+background-color = "yellow"
+
+Question7:Import the App.css file in order to include its styles in the current component assuming the current component and the style sheet are in the same directory.
+import './App.css'
+Question8:Name this CSS file so that it can be imported as a Module.
+header.module.css:
+Note:
+Now Goto the following  link and solve each exercise one by one in codepen
+https://dev.to/frontendengineer/10-reactjs-coding-exercises-with-codepen-exercise-and-solution--22k7
+
+Next:complete the exercises in ReactRouter slides

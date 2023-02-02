@@ -9,6 +9,8 @@ import { Container } from "./components/Container";
 import LifecycleA from "./components/LifeCycleA";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Home from "./pages/Home";
+import Drawer from "./components/Drawer";
 
 import "./App.css";
 
@@ -32,26 +34,22 @@ function App() {
   ];
 
   return (
-    <div className="App">
+    <Container>
       <Router>
-        <Header></Header>
-        <Container>
-          <Routes>
-            <Route
-              path="/"
-              element={<ShoppingList items={itemsList} />}
-            ></Route>
-            <Route
-              path="/shoppinglist"
-              element={<ShoppingList items={itemsList} />}
-            ></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="*" element={<NotFound />}></Route>
-          </Routes>
-        </Container>
+        {/* <Header></Header> */}
+        <Drawer></Drawer>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/shoppinglist"
+            element={<ShoppingList items={itemsList} />}
+          ></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
       </Router>
-    </div>
+    </Container>
   );
 }
 

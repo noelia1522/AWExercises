@@ -10,6 +10,14 @@ export default function Header() {
           <li className="listitem">
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
+              to="/"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="listitem">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
               to="/shoppinglist"
             >
               ShoppingList
