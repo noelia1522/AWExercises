@@ -38,16 +38,18 @@ function App() {
       <Router>
         {/* <Header></Header> */}
         <Drawer></Drawer>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
-            path="/shoppinglist"
-            element={<ShoppingList items={itemsList} />}
-          ></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
+        <div className="mainPage">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/shoppinglist"
+              element={<ShoppingList items={itemsList} />}
+            ></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </div>
       </Router>
     </Container>
   );

@@ -1,7 +1,10 @@
 
 .container{
-  min-width: 400px;
+  height: 100vh;
   display: grid;
+  grid-template:
+  "drawer main main main";
+
   /* border: 5px solid #212227; */
   border-radius: 10px;
   text-align: center;

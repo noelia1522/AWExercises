@@ -17,7 +17,11 @@ export default function Dropdown({ handleClick }: ButtonProps) {
         <option value="apple">Apple</option>
         <option value="kiwi">Kiwi</option>
       </select>
-      <button type="submit" onClick={(event: any) => handleClick(event, value)}>
+      <button
+        className="addButt"
+        type="submit"
+        onClick={(event: any) => handleClick(event, value)}
+      >
         Add Item
       </button>
     </div>

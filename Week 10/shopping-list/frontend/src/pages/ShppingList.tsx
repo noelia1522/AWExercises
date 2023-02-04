@@ -153,7 +153,7 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
     setBudget(selectedOption);
   }
   return (
-    <>
+    <div className="shoppinglist-container">
       {listItems.length === 0 ? (
         <h2 className="firstLine">The shopping list is empty</h2>
       ) : (
@@ -201,15 +201,8 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
         </ul>
       )}
       {isLoading && <Loader></Loader>}
-      <div>
-        <input className="addInput" value={note} onChange={noteHandler}></input>
-        <button className="incBut" onClick={addNotes}>
-          Add comment
-        </button>
-        <div>Notes: {comment}</div>
-      </div>
 
-      <div>
+      <div className="addBoxContainer">
         <form className="addItemContainer">
           <input
             className="addInput"
@@ -228,7 +221,7 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
           handleClick={(event: any, value) => addItem(event, value)}
         ></Dropdown>
       </div>
-      <form>
+      <form className="form">
         <div className="radio">
           <p>What is the budget for buying these items?</p>
           <label>
@@ -261,11 +254,18 @@ export const ShoppingList = ({ items }: ShoppingListProps) => {
             150-200
           </label>
         </div>
-        <button type="submit" className="addBut" onClick={setBudgetForList}>
+        <button type="submit" className="setBut" onClick={setBudgetForList}>
           Set
         </button>
         <div>The budget is {budget} euros.</div>
       </form>
-    </>
+      <div className="noteContainer">
+        <input className="addInput" value={note} onChange={noteHandler}></input>
+        <button className="incBut" onClick={addNotes}>
+          Add comment
+        </button>
+        <div className="note">Notes: {comment}</div>
+      </div>
+    </div>
   );
 };

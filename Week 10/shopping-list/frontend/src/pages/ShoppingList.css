@@ -1,7 +1,14 @@
+.shoppinglist-container{
+  display: grid;
+  justify-content: center;
+
+}
 .firstLine{
+  width:440px;
   padding: 5px;
   font-size: 20px;
   font-weight: 700;
+  padding-top: 130px;
 
 }
 .ulist{
@@ -13,7 +20,7 @@
 .litem{
   display:grid;
   list-style-type: none;
-  grid-template-columns: 20% 20% 60%;
+  grid-template-columns: 30% 10% 60%;
 }
 .highlighted{
   background-color: yellow;
@@ -23,6 +30,7 @@
 }
 
 .itemText{
+  text-align: left;
   padding: 10px;
   font-size: 20px;
   font-weight: 600;
@@ -36,6 +44,7 @@
 
 .butContainer{
 
+  text-align: right;
   display: grid;
   grid-template-columns: 50% 50%;
   margin:5px;
@@ -58,6 +67,10 @@
     border: 2px solid #013e3e;
     margin: 2px;
 }
+.addBoxContainer{
+  display: grid;
+  grid-template-rows: 50% 50% ;
+}
 .addItemContainer{
   padding: 10px 0 10px 0;
 }
@@ -68,5 +81,27 @@
 .addBut{
   padding:5px;
   margin-left: 3px;
+
+}
+.form{
+text-align: left;
+margin-top: 10px;
+}
+.radio{
+  margin-bottom: 5px;
+
+}
+.setBut{
+  padding: 0 30px;
+  margin: 8px 0;
+}
+.noteContainer{
+  text-align: left;
+  padding: 20px 0;
+
+}
+.note{
+  padding-top: 5px;
+  font-weight: bold;
 
 }

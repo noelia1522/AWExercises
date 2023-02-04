@@ -37,32 +37,40 @@ export default function Drawer() {
   ];
 
   return (
-    <MUIDrawer open variant="permanent">
-      <List>
-        {listItems.map((item) => (
-          <ListItem key={item.text} disablePadding onClick={item.onClick}>
+    <div style={{ display: "flex", gridArea: "drawer" }}>
+      <MUIDrawer
+        open
+        variant="permanent"
+        sx={{
+          width: "100px",
+        }}
+      >
+        <List>
+          {listItems.map((item) => (
+            <ListItem key={item.text} disablePadding onClick={item.onClick}>
+              <ListItemButton>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+          <Divider />
+          <ListItem
+            sx={{
+              position: "fixed",
+              bottom: 0,
+            }}
+            key={secondListItem[0].text}
+            disablePadding
+            onClick={secondListItem[0].onClick}
+          >
             <ListItemButton>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
+              <ListItemIcon>{secondListItem[0].icon}</ListItemIcon>
+              <ListItemText primary={secondListItem[0].text} />
             </ListItemButton>
           </ListItem>
-        ))}
-        <Divider />
-        <ListItem
-          sx={{
-            position: "fixed",
-            bottom: 0,
-          }}
-          key={secondListItem[0].text}
-          disablePadding
-          onClick={secondListItem[0].onClick}
-        >
-          <ListItemButton>
-            <ListItemIcon>{secondListItem[0].icon}</ListItemIcon>
-            <ListItemText primary={secondListItem[0].text} />
-          </ListItemButton>
-        </ListItem>
-      </List>
-    </MUIDrawer>
+        </List>
+      </MUIDrawer>
+    </div>
   );
 }
