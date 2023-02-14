@@ -1,8 +1,17 @@
 Challenge1:Create function using tdd approach
 Create a function named sumArray(array)that
 will take an array as an input and return the sum of numbers in an array.
+
 Challenge2:
 create a function that count the number of letter given as an input.
 function named as letterCount(input)
+
+
 Note:Read the following article for information regarding TDD IN react
 https://dev.to/devkhadka/tdd-in-react-using-jest-beginner-tutorial-4eed
+
+Challenge3:
+create a function that removes every second element of an array using TDD IN Jest
+
+Challenge4:
+Implement fizbuzz using TDD
