@@ -1,0 +1,47 @@
+Step 1: You will start a new project using create-react-app so open your terminal and type.
+
+npx create-react-app jest-testing
+Step 2: Switch to the jest-testing folder using the following command.
+cd tic-tac-toe-react
+Step 3: Change to the src folder and remove the unnecessary stuff using the following command
+
+cd src
+rm*
+Step 4: Create a components folder in the src folder
+mkdir components
+Step 5: Create a Button folder and a Text folder
+
+mkdir Button,Text
+
+Step 6: Create a Button.js file and Button.test.js file inside the Button folder.
+
+touch Button.js Button.test.js
+Note: The name of the test file should be the same as the component and should
+be followed with a .test.js extension as when the tests are run using the npm test command, React automatically checks for all the file names with a
+ .test extension and runs the tests.
+
+Step 7: Create a Text.js file and Text.test.js file inside the Text folder.
+touch Text.js Text.test.js
+
+Step 8: In the src folder, create App.js, index.js, and App.test.js files.
+
+touch App.js index.js App.test.js
+Now
+Setup all the files with basic code to toggle the text "welcome to the world of testing" when a button is clicked.
+TODO:
+Testing the Button Component: We are going to perform two tests on the Button Component. 
+
+Test 1: Testing if the button is rendered correctly to the DOM.
+Test 2: Testing if the button displays the text passed as a prop.
+
+Testing the Text Component: We are going to perform three tests on the Text Component.
+
+Test 1: Testing if the text element is rendered correctly to the DOM.
+Test 2: Testing the content of the text element when the toggle is set to true.
+Test 3: Testing the content of the text element when the toggle is set to false.
+
+Testing the App Component: Testing the App Component is also known as integration testing as we the testing the application when we have integrated our button and text components. We are going to perform three tests on the App Component.
+
+Test 1: Testing whether all the components have rendered
+Test 2: Testing the default value of the text element
+Test 3: Testing the toggle ability of the button
