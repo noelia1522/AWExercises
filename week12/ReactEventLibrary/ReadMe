@@ -1,0 +1,30 @@
+1. Create a sample react app
+Let’s create a simple react application using the create-react-app and handle an email validation message based on the given input.
+
+Look at the app.js component for the react app.
+
+Let’s test the following use cases for the above application.
+
+*render email input
+
+Assert
+
+1.The input field should be in the document
+2.The input field should have a type email attribute
+
+*pass valid email to test email input field
+
+Assert
+
+1.The input field have a valid given value
+2.The error message should not be in the document
+
+*pass invalid email to test input value
+
+Assert
+
+1.The input field have an invalid given value
+2The error message should be in the document
+3The error message should contain “Please enter a valid email.” text
+
+Here, we will use the userEvent from the @testing-library/user-event to type the text in the input field.
