@@ -1,0 +1,12 @@
+# Test user-event
+
+## Issue
+
+If the initial input value is 1 character long AND the userEvent.type method changes that value to start with the same character then it will ignore the new value until it encounters a different character.
+
+Example:
+
+Initial input value: `'1'`
+Proposed change value via `userEvent.type`: `'11123'`
+
+The received input value will be `'23'`, rather than `'11123'`;

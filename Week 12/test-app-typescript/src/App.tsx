@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
+import { Application } from "./Application";
 import Button from "./Button";
+import { Counter } from "./Counter";
 import Todo from "./Todo";
 
 function App() {
@@ -12,10 +14,12 @@ function App() {
   ];
   return (
     <div className="App">
-      <Button label="Click"></Button>
+      <Counter></Counter>
+      {/* <Application></Application> */}
+      {/* <Button label="Click"></Button>
       {todos.map((todo) => {
         return <Todo todo={todo} />;
-      })}
+      })} */}
     </div>
   );
 }

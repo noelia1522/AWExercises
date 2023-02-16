@@ -1,0 +1,10 @@
+For add input
+Assert 
+1.It should render input element
+2.should be able to type into input "/Add a new task here.."
+3.it should have empty input when add button is cliked'
+
+For todoFooter
+Assert
+1.It should render the correct amount of incomplete tasks
+2.It should render "task" when the number of incomplete tasks is one
