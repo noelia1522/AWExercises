@@ -1,0 +1,6 @@
+Challenge1:
+You will build a contact list app that fetches the list of all users from API and renders each user’s details on a component with “show age” button which displays the age on click.
+
+Topics covered:
+React Hooks, components, props, useState(), useEffect(). Fetch API, JS Promises, and callback.
+Refrence:https://youtu.be/bZXjHauDNcg
