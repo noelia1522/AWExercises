@@ -15,8 +15,24 @@ function logout(req, res, next) {
 }
 
 function login(req, res, next) {
-  console.log("logged in...", req.user);
-  console.log(req.session);
+  passport.authenticate("local",(err, user, info)=>{
+    if(err || !user){
+      res.status(401).send(info.message)
+    }
+    else{
+      req.login(user, function(error){
+        if(err){
+          return next(err)
+        }
+        res.status(200).json({
+          email:user.email,
+          name: user.name
+        })
+      })
+
+
+    }
+  })
 
 }
 
@@ -59,7 +75,5 @@ function login(req, res, next) {
       name: req.user.name
   	});
   };
-
-
 
   module.exports = {getUser, login, logout, register};
