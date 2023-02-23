@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Quiz from "./pages/Quiz";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
@@ -12,6 +12,15 @@ import { useLoader } from "./context/LoadContext";
 export default function App() {
   const generalContext = useLoader();
   const isLoading = generalContext?.isLoading;
+
+  useEffect(() => {
+    const errorTimeOut = setTimeout(() => {
+      generalContext?.setError(null);
+    }, 3000);
+    return () => {
+      clearTimeout(errorTimeOut);
+    };
+  }, [generalContext]);
   return (
     <div className="container">
       <AuthenticationProvider>
