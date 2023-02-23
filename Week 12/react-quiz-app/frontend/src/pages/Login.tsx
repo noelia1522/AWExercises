@@ -25,8 +25,6 @@ export default function Login() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-
         authResult?.onLogin({ email: data.email, name: data.name });
         navigate("/quiz", { replace: true });
       });

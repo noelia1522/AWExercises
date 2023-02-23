@@ -8,8 +8,6 @@ type QCProps = {
   question: string;
   answers: string[];
   callback: any; //change later
-  questionNumber: number;
-  totalQuestions: number;
   userAnswer: userAnswersType | undefined;
 };
 
@@ -17,8 +15,6 @@ const QuestionCard: React.FC<QCProps> = ({
   question,
   answers,
   callback,
-  questionNumber,
-  totalQuestions,
   userAnswer,
 }) => {
   return (

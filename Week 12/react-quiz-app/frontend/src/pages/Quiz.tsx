@@ -6,6 +6,7 @@ import { Difficulty, QuestionState } from "../API";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import "./Quiz.css";
+import { useAuthentication } from "../context/AuthenticationProvider";
 
 export type userAnswersType = {
   question: string;
@@ -15,7 +16,7 @@ export type userAnswersType = {
 };
 
 function Quiz() {
-  const TOTAL_QUESTIONS = 10;
+  const TOTAL_QUESTIONS = 3;
   const [questions, setQuestions] = useState<QuestionState[]>([]);
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState<userAnswersType[]>([]);
@@ -23,6 +24,7 @@ function Quiz() {
   const [gameOver, setGameOver] = useState(true);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { onLogout } = useAuthentication();
 
   console.log(fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.EASY));
 
@@ -64,6 +66,7 @@ function Quiz() {
     setUserAnswers([]);
     console.log(questions);
   };
+
   const logoutHandler = async () => {
     const requestOptions: RequestInit = {
       method: "GET",
@@ -75,6 +78,7 @@ function Quiz() {
         response.json();
       })
       .then((data) => {
+        onLogout();
         navigate("/login", { replace: true });
       });
   };
@@ -97,24 +101,21 @@ function Quiz() {
           Start Quiz!
         </Button>
       ) : null}
-      {!gameOver && (
-        <div className="first-row">
-          <div className="score">Score: {score}</div>
-          <div className="number">
-            Question: {number + 1}/ {TOTAL_QUESTIONS}
-          </div>
-        </div>
-      )}
-
       {!loading && !gameOver && (
-        <QuestionCard
-          question={questions[number]?.question}
-          answers={questions[number]?.answers}
-          userAnswer={userAnswers ? userAnswers[number] : undefined}
-          callback={checkAnswer}
-          questionNumber={number + 1}
-          totalQuestions={TOTAL_QUESTIONS}
-        ></QuestionCard>
+        <>
+          <div className="first-row">
+            <div className="score">Score: {score}</div>
+            <div className="number">
+              Question: {number + 1}/ {TOTAL_QUESTIONS}
+            </div>
+          </div>
+          <QuestionCard
+            question={questions[number]?.question}
+            answers={questions[number]?.answers}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            callback={checkAnswer}
+          ></QuestionCard>
+        </>
       )}
       {!gameOver &&
         !loading &&

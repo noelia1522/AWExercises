@@ -7,12 +7,9 @@ type PropsType = {
 };
 export default function RequiredAuth({ children }: PropsType) {
   const authResult = useAuthentication();
-  // setTimeout(() => {
-
-  if (!authResult?.authData.name) {
-    console.log("No USER!!!!!");
+  if (!authResult?.authData) {
+    console.log("No USER!");
     return <Navigate to="/login" replace />;
   }
-  // }, 1000);
   return children;
 }

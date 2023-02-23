@@ -24,7 +24,7 @@ export default function App() {
   return (
     <div className="container">
       <AuthenticationProvider>
-        {isLoading ? (
+        {!generalContext?.error && isLoading ? (
           <div>Loading Data...</div>
         ) : (
           <Router>
