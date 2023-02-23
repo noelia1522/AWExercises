@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const passport = require("passport");
+const { BadRequest } = require('../utils/error');
 
 function logout(req, res, next) {
   req.logout()
@@ -42,14 +43,19 @@ function login(req, res, next) {
 }
 
   async function register(req, res, next) {
+    const {name, email, password} =req.body;
+    try{
+    if(!name || !password || !email){
+      throw new BadRequest("Missing required fields: name, email, or password.")
+    }
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-      return res.status(400).send(`Email <${req.body.email}> already taken`);
+      // return res.status(400).send(`Email <${req.body.email}> already taken`);
+      throw new BadRequest("Email is taken! Please use another email address.")
+
     } else {
 
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    try {
-
       const newuser = await User.create({
         name: req.body.name,
         email: req.body.email,
@@ -66,12 +72,12 @@ function login(req, res, next) {
               name: newuser.name,
             });
           });
-    } catch(error) {
+        }
+    }
+    catch(error) {
       console.log(error)
       next(error);
     }
-
-	}
   };
 
   function getUser(req, res) {

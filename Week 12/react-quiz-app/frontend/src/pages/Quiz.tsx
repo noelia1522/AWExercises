@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import "./App.css";
-import QuestionCard from "./components/QuestionCard";
-import { fetchQuizQuestions } from "./API";
-import { Difficulty, QuestionState } from "./API";
+// import "./App.css";
+import QuestionCard from "../components/QuestionCard";
+import { fetchQuizQuestions } from "../API";
+import { Difficulty, QuestionState } from "../API";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import "./Quiz.css";
 
 export type userAnswersType = {
   question: string;
@@ -78,12 +80,32 @@ function Quiz() {
   };
 
   return (
-    <div className="App">
+    <div className="quiz-container">
       <h1>React Quiz</h1>
-      <button className="start" onClick={startQuiz}>
-        Start Quiz!
-      </button>
-      <button onClick={logoutHandler}>Logout</button>
+      {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+        <Button
+          className="start"
+          variant="contained"
+          onClick={startQuiz}
+          sx={{
+            maxWidth: "168px",
+            maxHeight: "40px",
+            padding: "10px 0",
+            margin: "10px",
+          }}
+        >
+          Start Quiz!
+        </Button>
+      ) : null}
+      {!gameOver && (
+        <div className="first-row">
+          <div className="score">Score: {score}</div>
+          <div className="number">
+            Question: {number + 1}/ {TOTAL_QUESTIONS}
+          </div>
+        </div>
+      )}
+
       {!loading && !gameOver && (
         <QuestionCard
           question={questions[number]?.question}
@@ -98,8 +120,26 @@ function Quiz() {
         !loading &&
         userAnswers.length === number + 1 &&
         number !== TOTAL_QUESTIONS - 1 && (
-          <button onClick={nextQuestion}>NextQuestion</button>
+          <Button
+            variant="contained"
+            onClick={nextQuestion}
+            sx={{ maxWidth: "168px", padding: "10px 0", margin: "10px" }}
+          >
+            NextQuestion
+          </Button>
         )}
+      <Button
+        variant="contained"
+        onClick={logoutHandler}
+        sx={{
+          maxWidth: "168px",
+          maxHeight: "40px",
+          padding: "10px 0",
+          margin: "10px",
+        }}
+      >
+        Logout
+      </Button>
     </div>
   );
 }

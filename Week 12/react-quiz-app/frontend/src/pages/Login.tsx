@@ -19,8 +19,6 @@ export default function Login() {
     };
     fetch("users/login", requestOption)
       .then((response) => {
-        console.log("heeer");
-
         if (response.status !== 200) {
           throw new Error(response.statusText);
         }
@@ -39,7 +37,7 @@ export default function Login() {
       <form className="form-control">
         <h1 style={{ textAlign: "center" }}>Login</h1>
         <label>
-          Email:
+          Email
           <input
             type="email"
             value={email}
@@ -47,7 +45,7 @@ export default function Login() {
           />
         </label>
         <label>
-          Password:
+          Password
           <input
             type="password"
             value={password}

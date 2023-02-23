@@ -32,9 +32,11 @@ export default function AuthenticationProvider({ children }: PropsType) {
           onLogin(data);
           loadingResult?.setIsLoading(false);
           return data;
+        } else {
+          //if we cannot fetch data
+          loadingResult?.setIsLoading(false); //should be false when no user found
+          throw new Error(response.statusText);
         }
-        loadingResult?.setIsLoading(false); //it was true. should be false when no user found
-        throw new Error(response.statusText);
       } catch (error) {
         console.log(error);
         return;

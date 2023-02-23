@@ -1,6 +1,9 @@
 import React from "react";
+import Button from "@mui/material/Button";
+import "./QuestionCard.css";
+
 //types
-import { userAnswersType } from "../Quiz";
+import { userAnswersType } from "../pages/Quiz";
 type QCProps = {
   question: string;
   answers: string[];
@@ -19,22 +22,22 @@ const QuestionCard: React.FC<QCProps> = ({
   userAnswer,
 }) => {
   return (
-    <div>
-      <p className="number">
+    <div className="card-container">
+      {/* <p className="number">
         Question: {questionNumber}/ {totalQuestions}
-      </p>
+      </p> */}
       <p className="question">{question}:</p>
-      <div>
+      <div className="answers-container">
         {answers.map((answer) => (
           <div key={answer}>
-            <button
+            <Button
               key={answer}
               disabled={!!userAnswer}
               value={answer}
               onClick={callback}
             >
               {answer}
-            </button>
+            </Button>
           </div>
         ))}
       </div>

@@ -7,6 +7,7 @@ const MongoStore = require('connect-mongo')
 const initializePassport = require('./config/passport-config');
 const passport = require('passport');
 const authRouter = require('./routes/authRoutes')
+const errorHandler = require('./middleware/errorhandler')
 
 initializePassport(passport)
 dotenv.config();
@@ -39,13 +40,14 @@ app.use((req, res, next)=>{
 })
 
 app.use('/users', authRouter)
+app.use(errorHandler)
 
-app.get('/', (req,res)=>{
-  if(req.session.viewCount) req.session.viewCount++;
-  else req.session.viewCount = 1;
-  res.json({message:"home page"})
-  console.log(req.session);
-})
+// app.get('/', (req,res)=>{
+//   if(req.session.viewCount) req.session.viewCount++;
+//   else req.session.viewCount = 1;
+//   res.json({message:"home page"})
+//   console.log(req.session);
+// })
 
 
 
