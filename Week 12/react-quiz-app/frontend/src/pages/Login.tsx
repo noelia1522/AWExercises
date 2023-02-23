@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthentication } from "../context/AuthenticationProvider";
+
 import Button from "@mui/material/Button";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const authResult = useAuthentication();
   const navigate = useNavigate();
 
   function submitHandler(event: React.MouseEvent<HTMLButtonElement>) {
@@ -14,11 +17,21 @@ export default function Login() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     };
-    fetch("users/register", requestOption).then((response) => {
-      if (response.status !== 200) {
-        throw new Error(response.statusText);
-      } else navigate("/quiz", { replace: true });
-    });
+    fetch("users/login", requestOption)
+      .then((response) => {
+        console.log("heeer");
+
+        if (response.status !== 200) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+
+        authResult?.onLogin({ email: data.email, name: data.name });
+        navigate("/quiz", { replace: true });
+      });
   }
 
   return (
@@ -42,7 +55,7 @@ export default function Login() {
           />
         </label>
         <Button variant="contained" onClick={submitHandler}>
-          Log in
+          Login
         </Button>
       </form>
     </>

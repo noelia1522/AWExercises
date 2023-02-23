@@ -33,8 +33,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next)=>{
-  console.log(req.session);// by express-session
-  console.log(req.user); // by passport
+  // console.log(req.session);// by express-session
+  // console.log(req.user); // by passport
   next();
 })
 
