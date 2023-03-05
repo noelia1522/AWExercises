@@ -9,7 +9,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
   const generalContext = useLoader();
-
+  // const BASE_URL = "https://simple-server-rsaniei1991.vercel.app/";
   function submitHandler(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     const requestOption = {

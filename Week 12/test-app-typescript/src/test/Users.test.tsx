@@ -10,10 +10,18 @@ describe("Users", () => {
     expect(textElement).toBeInTheDocument();
   });
 
+  test("renders App and fetch data", async () => {
+    await render(<Users />);
+    const loading = await screen.findByText("loading...");
+    expect(loading).toBeInTheDocument();
+    const listNode = await screen.findByTestId("posts");
+    expect(loading).not.toBeInTheDocument();
+    expect(listNode.childNodes).toHaveLength(1);
+  });
   test("renders a list of users", async () => {
     render(<Users />);
     const users = await screen.findAllByRole("listitem");
-    expect(users).toHaveLength(4);
+    expect(users).toHaveLength(5);
   });
   test("renders errors", async () => {
     server.use(

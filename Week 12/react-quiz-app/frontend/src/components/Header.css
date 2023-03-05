@@ -20,3 +20,6 @@
 .litem a.active{
   background-color: #5795d2;
 }
+.autocomplete{
+  float: right;
+}

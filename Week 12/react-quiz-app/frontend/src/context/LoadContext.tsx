@@ -11,7 +11,7 @@ type contextType = {
 };
 export const LoadContext = createContext<contextType | undefined>(undefined);
 export default function LoadContextProvider({ children }: PropsType) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   console.log("here in load context");
 

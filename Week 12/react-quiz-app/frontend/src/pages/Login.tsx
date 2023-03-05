@@ -17,7 +17,7 @@ export default function Login() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     };
-    fetch("users/login", requestOption)
+    fetch("/users/login", requestOption)
       .then((response) => {
         if (response.status !== 200) {
           throw new Error(response.statusText);

@@ -43,7 +43,6 @@ const { BadRequest } = require('../utils/errors');
         throw new BadRequest("Missing required field: name, password, or email")
       }
       else{
-        console.log("post/register/else");
       const hashedPassword = await bcrypt.hash(req.body.password, 10); //salt = 10
      await User.create({
       name: req.body.name,

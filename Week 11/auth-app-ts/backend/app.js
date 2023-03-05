@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require("connect-mongo");
-
 const tasksRouter = require('./routes/tasksRouter');
 const authRouter = require('./routes/authRouter');
 

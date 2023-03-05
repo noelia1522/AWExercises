@@ -9,8 +9,19 @@ export const handlers = [
       {name: "Princess Diana"},
       {name: "william shakespeare"},
       {name: "Michael Jacksom"},
-      {name: "Michael Jacksom"}
+      {name: "Mike Jacksom"},
+      {name: "Sara Jacksom"}
 
     ]))
   }),
+  rest.get('https://jsonplaceholder.typicode.com/posts', (req, res, ctx) => {
+  return res(
+    ctx.status(200),
+    ctx.json([{
+    title: 'title a',
+    body: 'body a'
+  }])
+  )
+})
+
 ]

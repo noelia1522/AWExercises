@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const passport = require("passport");
 const { BadRequest } = require('../utils/error');
@@ -55,7 +55,8 @@ function login(req, res, next) {
 
     } else {
 
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const hashedPassword = password;
+    // await bcrypt.hash(req.body.password, 10)
       const newuser = await User.create({
         name: req.body.name,
         email: req.body.email,
@@ -81,10 +82,11 @@ function login(req, res, next) {
   };
 
   function getUser(req, res) {
-      res.status(200).json({
-    	email: req.user.email,
-      name: req.user.name
-  	});
+    //   res.status(200).json({
+    // 	email: req.user.email,
+    //   name: req.user.name
+  	// });
+    res.json({message: "hello!"})
   };
 
   module.exports = {getUser, login, logout, register};

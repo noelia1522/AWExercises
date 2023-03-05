@@ -8,6 +8,8 @@ type AuthProps = {
 export const RequiredAuth = ({ children }: AuthProps) => {
   const result = useAuthentication();
   const authData = result?.authData;
+  console.log(authData);
+
   const location = useLocation();
 
   console.log("Require Auth says hello ", authData?.name);
