@@ -9,6 +9,14 @@ export default function Header() {
           <li className="litem">
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
+              to="/posts"
+            >
+              Posts
+            </NavLink>
+          </li>
+          <li className="litem">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
               to="/login"
             >
               Login

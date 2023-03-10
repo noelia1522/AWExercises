@@ -1,5 +1,6 @@
 const {GeneralError, BadRequest, NotFound} = require('../utils/error')
 const handleErrors = (err, req, res, next) =>{
+  console.log("We are inside Error handler");
   if (err instanceof NotFound){
     return res.status(err.getstatusCode()).json({
       status:"Error",

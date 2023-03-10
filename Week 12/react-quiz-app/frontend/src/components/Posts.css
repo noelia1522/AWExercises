@@ -1,0 +1,14 @@
+.post{
+  list-style-type: none;
+  border: 1px solid rgb(201, 199, 199);
+  width:600px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px;
+  text-indent: 10px;
+  color:rgb(43, 43, 43);
+}
+.post:hover{
+  background-color: rgb(214, 213, 213);
+}

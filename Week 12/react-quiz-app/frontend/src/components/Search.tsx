@@ -22,33 +22,40 @@ export default function Search() {
         return response.json();
       })
       .then((data) => {
+        // setLoading(false);
         setResults(data);
+        console.log(results);
       });
   };
-  return (
-    // // you can use MUI Autocomplete component
-    <Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      options={results}
-      sx={{ width: 300 }}
-      onInputChange={handleChange}
-      renderInput={(params) => {
-        return <TextField {...params} label="My Movie" />;
-      }}
-    />
-    // // or use form, inpot and ul HTML tags.
 
-    // <form className="search-container" onSubmit={handleSubmit}>
-    //   <div className="input-container">
-    //     <input type="text" value={queryText} onChange={handleChange}></input>
-    //     <button type="submit"> Search </button>
-    //   </div>
-    //   <ul className="autocomplete">
-    //     {results.map((result, index) => (
-    //       <li key={index}>{result["label"]}</li>
-    //     ))}
-    //   </ul>
-    // </form>
+  console.log(results);
+
+  return (
+    <>
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={results}
+        sx={{ width: 300 }}
+        onInputChange={handleChange}
+        renderInput={(params) => {
+          return <TextField {...params} label="My Movie" />;
+        }}
+      />
+    </>
   );
+  // // or use form, inpot and ul HTML tags.
+
+  // <form className="search-container" onSubmit={handleSubmit}>
+  //   <div className="input-container">
+  //     <input type="text" value={queryText} onChange={handleChange}></input>
+  //     <button type="submit"> Search </button>
+  //   </div>
+  //   <ul className="autocomplete">
+  //     {results.map((result, index) => (
+  //       <li key={index}>{result["label"]}</li>
+  //     ))}
+  //   </ul>
+  // </form>
+  //);
 }

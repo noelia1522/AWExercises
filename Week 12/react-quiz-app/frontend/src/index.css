@@ -24,10 +24,10 @@ code {
   align-items: center;
   justify-content: center;
   height: 100%;
-  max-width: 500px;
+  width: 700px;
   min-height: 500px;
   margin: 30px auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-top: 80px;
 }
 

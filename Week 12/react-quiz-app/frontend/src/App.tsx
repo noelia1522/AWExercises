@@ -10,8 +10,10 @@ import Alert from "@mui/material/Alert";
 import { useLoader } from "./context/LoadContext";
 // import AutoComplete from "./components/AutoComplete";
 import Search from "./pages/Search";
+import Posts from "./pages/BlogPosts";
 
 export default function App() {
+  // throw new Error();
   const generalContext = useLoader();
   const isLoading = generalContext?.isLoading;
 
@@ -19,8 +21,12 @@ export default function App() {
     const errorTimeOut = setTimeout(() => {
       generalContext?.setError(null);
     }, 3000);
+    const messageTimeOut = setTimeout(() => {
+      generalContext?.setMessage(null);
+    }, 3000);
     return () => {
       clearTimeout(errorTimeOut);
+      clearTimeout(messageTimeOut);
     };
   }, [generalContext]);
   return (
@@ -40,7 +46,8 @@ export default function App() {
                   </RequiredAuth>
                 }
               />
-              <Route path="search" element={<Search />}></Route>
+              <Route path="/search" element={<Search />}></Route>
+              <Route path="/posts" element={<Posts />}></Route>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>
@@ -49,6 +56,9 @@ export default function App() {
       </AuthenticationProvider>
       {generalContext?.error && (
         <Alert severity="error">{generalContext?.error}</Alert>
+      )}
+      {generalContext?.message && (
+        <Alert severity="success">{generalContext?.message}</Alert>
       )}
     </div>
   );

@@ -16,12 +16,16 @@ function logout(req, res, next) {
 }
 
 function login(req, res, next) {
-  console.log("Here in backend login");
   passport.authenticate("local",(err, user, info)=>{
-    if(err || !user){
-            console.log("here in error");
 
-      res.status(401).send(info.message)
+    if(err || !user){
+      try{
+      throw new BadRequest(info.message)
+      // res.status(401).send(info.message)
+      }
+      catch(error){
+      next(error);
+      }
     }
     else{
       req.login(user, function(error){
@@ -35,8 +39,6 @@ function login(req, res, next) {
           name: user.name
         })
       })
-
-
     }
   })(req, res, next);
 
@@ -70,7 +72,7 @@ function login(req, res, next) {
             }
             res.status(200).json({
               email: newuser.email,
-              name: newuser.name,
+              name: newuser.name
             });
           });
         }
@@ -82,11 +84,11 @@ function login(req, res, next) {
   };
 
   function getUser(req, res) {
-    //   res.status(200).json({
-    // 	email: req.user.email,
-    //   name: req.user.name
-  	// });
-    res.json({message: "hello!"})
+      res.status(200).json({
+    	email: req.user.email,
+      name: req.user.name
+  	});
+    // res.json({message: "hello!"})
   };
 
   module.exports = {getUser, login, logout, register};

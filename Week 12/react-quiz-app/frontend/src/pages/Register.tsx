@@ -19,10 +19,17 @@ export default function Register() {
     };
     fetch("users/register", requestOption)
       .then((response) => {
-        if (response.status === 200) navigate("/quiz", { replace: true });
+        console.log(response);
+
+        if (response.status === 200) {
+          navigate("/quiz", { replace: true });
+          generalContext?.setMessage("You registered successfully!");
+        }
         return response.json();
       })
       .then((data) => {
+        console.log(data);
+
         if (data.status === "Error") generalContext?.setError(data.message);
       });
   }

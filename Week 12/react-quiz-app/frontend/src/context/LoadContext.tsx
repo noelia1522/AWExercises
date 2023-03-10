@@ -8,15 +8,20 @@ type contextType = {
   setIsLoading: (p: boolean) => void;
   error: string | null;
   setError: (value: string | null) => void;
+  message: string | null;
+  setMessage: (value: string | null) => void;
 };
 export const LoadContext = createContext<contextType | undefined>(undefined);
 export default function LoadContextProvider({ children }: PropsType) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
   console.log("here in load context");
 
   return (
-    <LoadContext.Provider value={{ isLoading, setIsLoading, error, setError }}>
+    <LoadContext.Provider
+      value={{ isLoading, setIsLoading, error, setError, message, setMessage }}
+    >
       {children}
     </LoadContext.Provider>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthentication } from "../context/AuthenticationProvider";
-
+import { useLoader } from "../context/LoadContext";
 import Button from "@mui/material/Button";
 
 export default function Login() {
@@ -9,6 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const authResult = useAuthentication();
   const navigate = useNavigate();
+  const generalContext = useLoader();
 
   function submitHandler(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
@@ -19,14 +20,19 @@ export default function Login() {
     };
     fetch("/users/login", requestOption)
       .then((response) => {
-        if (response.status !== 200) {
-          throw new Error(response.statusText);
-        }
+        // console.log(response);
+
+        // if (response.status !== 200) {
+        //   // throw new Error(response.statusText);
+        // }
         return response.json();
       })
       .then((data) => {
-        authResult?.onLogin({ email: data.email, name: data.name });
-        navigate("/quiz", { replace: true });
+        if (data.status === "Error") generalContext?.setError(data.message);
+        else {
+          authResult?.onLogin({ email: data.email, name: data.name });
+          navigate("/quiz", { replace: true });
+        }
       });
   }
 
